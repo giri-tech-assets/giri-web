@@ -1,6 +1,4 @@
 import React from 'react';
-import BrotherPorter from '@/assets/images/brother-porter.svg';
-import ShoppingLadies from '@/assets/images/shopping-ladies.svg';
 
 
 
@@ -17,7 +15,7 @@ const Feature: React.FC<FeatureProps> = ({ title, description, buttonText, image
   <div className={`flex w-full ${reverse ? 'flex-row-reverse' : 'flex-row'} gap-8 mb-20 max-md:flex-col`}>
     <div className="w-1/2 max-md:w-full">
       <div className="object-contain w-full aspect-[1.1]" >
-      {imageSrc}
+      <img src={imageSrc}  alt={'giri-sellers'} loading={'lazy'}/>
       </div>
 
     </div>
@@ -38,7 +36,7 @@ export const FeatureSection: React.FC = () => (
         title="For Sellers: Showcase Your Creativity – Reach Buyers Around the Globe!"
         description="Expand your reach and grow your business by showcasing your products to a global audience. GiriToday offers easy-to-use tools, marketing support, and a community that values creativity and craftsmanship."
         buttonText="Start selling now"
-        imageSrc={<ShoppingLadies/>}
+        imageSrc={'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/shopping-ladies.svg'}
         imageAlt="African seller showcase"
         reverse
       />
@@ -46,7 +44,7 @@ export const FeatureSection: React.FC = () => (
         title="For Buyers: Shop Authentic, From Africa's Markets to Your Doorstep"
         description="Explore a marketplace filled with unique products that tell stories from different cultures and regions. From handcrafted goods to local delicacies, every item is a discovery waiting to be made."
         buttonText="Start shopping now"
-        imageSrc={<BrotherPorter/>}
+        imageSrc={'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/brother-porter.svg'}
         imageAlt="African marketplace showcase"
       />
     </div>

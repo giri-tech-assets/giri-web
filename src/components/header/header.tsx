@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ type }) => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${Background})`,
+          backgroundImage: `url('https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg')`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: 'cover',

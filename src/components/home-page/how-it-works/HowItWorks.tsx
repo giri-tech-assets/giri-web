@@ -2,10 +2,10 @@ import React from 'react';
 import { FeatureCard } from './FeatureCard';
 import Button from '@/components/common/Button';
 
-import Integrate from '@/assets/images/integrate.svg';
-import Sell from '@/assets/images/sell.svg';
-import Deliver from '@/assets/images/deliver.svg';
-import AnimatedSvg from '@/components/common/AnimatedSvg';
+const Integrate = 'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/Integrate.svg';
+const Sell = 'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/sell.svg';
+const Deliver = 'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/deliver.svg';
+
 
 interface Feature {
   imageSrc: any;
@@ -15,19 +15,19 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    imageSrc: <AnimatedSvg SvgComponent={Integrate as any} size={50} />,
+    imageSrc: Integrate ,
     title: 'INTEGRATE',
     description:
       'We set up online stores for our sellers with products catalogs, each products tailored to users experience ranging from handmade to personalized items.',
   },
   {
-    imageSrc: <AnimatedSvg SvgComponent={Sell as any} size={50} />,
+    imageSrc: Sell ,
     title: 'SELL',
     description:
       'We promote your products to customers globally making sure our buyers are reached via various platforms, payment methods are simplified to ensure seamless user experience.',
   },
   {
-    imageSrc: <AnimatedSvg SvgComponent={Deliver as any} size={50} />,
+    imageSrc: Deliver ,
     title: 'DELIVER',
     description:
       'All product Quality is strictly monitored and carefully packaged to ensure our buyers receive items in good condition.',

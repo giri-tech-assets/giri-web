@@ -1,13 +1,12 @@
 import { HeroMessage } from './hero-message/HeroMessage';
-import Background from './african-pattern.svg';
-import HomeImage from '@/assets/images/home-image.svg';
+
 
 export const HeroBackground = () => {
   return (
     <div
       className="absolute inset-0 z-0"
       style={{
-        backgroundImage: `url(${Background})`,
+        backgroundImage: `url('https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg')`,
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
         backgroundSize: `cover`,
@@ -29,7 +28,7 @@ export const MainHeroSection = () => {
               </div>
               <div className="w-full lg:w-1/2 flex-shrink-0 flex justify-center items-center">
                 <div className="w-full max-w-[80vw] mx-auto lg:max-w-none">
-                  <HomeImage />
+                  <img src={'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/home-Image.svg'} alt="home-hero" loading='lazy' />
                 </div>
               </div>
             </div>
