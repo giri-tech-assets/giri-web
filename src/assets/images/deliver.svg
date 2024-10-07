@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="6.478799819946289 6.3423004150390625 35.04240417480469 35.315399169921875" enable-background="new 0 0 48 48">
+  <g>
+    <!-- Main body of the delivery truck -->
+    <path fill="#000000" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+      d="M29.1958,35.2992H11.4003c-0.5939,0-1.0754-0.4815-1.0754-1.0754V21.8064c0-0.5939,0.4815-1.0754,1.0754-1.0754h17.7955c0.5939,0,1.0754,0.4815,1.0754,1.0754v12.4174C30.2712,34.8177,29.7897,35.2992,29.1958,35.2992z"/>
+
+    <path fill="#000000" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+      d="M40.1682,38.2992H10.9278c-0.333,0-0.6029-0.2699-0.6029-0.6029v-1.7941c0-0.333,0.2699-0.6029,0.6029-0.6029h29.2404c0.333,0,0.6029,0.2699,0.6029,0.6029v1.7941C40.7712,38.0292,40.5012,38.2992,40.1682,38.2992z"/>
+
+    <path fill="#000000" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+      d="M40.7712,31.0792v2.8799c0,0.7401-0.6,1.34-1.34,1.34h-9.16v-10.5h4.36c1.05,0,2.05,0.43,2.77,1.19l2.33,2.48c0.43,0.45,0.73,0.99,0.9,1.58C40.7212,30.3792,40.7712,30.7292,40.7712,31.0792z"/>
+
+    <!-- Wheels -->
+    <circle fill="#000000" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="18.5396" cy="37.7217" r="3.186">
+      <animateTransform attributeName="transform" type="rotate" from="0 18.5396 37.7217" to="360 18.5396 37.7217" dur="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle fill="#000000" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="33.6525" cy="37.7217" r="3.186">
+      <animateTransform attributeName="transform" type="rotate" from="0 33.6525 37.7217" to="360 33.6525 37.7217" dur="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Speed lines -->
+    <g>
+      <line fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="7.2288" y1="29.1174" x2="14.7273" y2="29.1174">
+        <animate attributeName="x1" values="7.2288; 4; 7.2288" dur="1s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="14.7273; 11.7273; 14.7273" dur="1s" repeatCount="indefinite"/>
+      </line>
+
+      <line fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="8.5792" y1="25.6174" x2="12.1802" y2="25.6174">
+        <animate attributeName="x1" values="8.5792; 5; 8.5792" dur="1s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="12.1802; 9.1802; 12.1802" dur="1s" repeatCount="indefinite"/>
+      </line>
+
+      <line fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9.2169" y1="32.481" x2="12.5553" y2="32.481">
+        <animate attributeName="x1" values="9.2169; 6.2169; 9.2169" dur="1s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="12.5553; 9.5553; 12.5553" dur="1s" repeatCount="indefinite"/>
+      </line>
+    </g>
+  </g>
+</svg>
