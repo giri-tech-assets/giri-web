@@ -1,4 +1,4 @@
-// import { BlogPostData, BlogPostCard } from "@/components/blog-page/BlogCard";
+// import { BlogPostData, BlogPostCard } from "../components/blog-page/BlogCard";
 // import { motion } from "framer-motion";
 // import { PageProps, graphql } from "gatsby";
 

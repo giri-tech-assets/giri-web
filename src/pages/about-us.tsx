@@ -1,16 +1,18 @@
-import { FeatureSection } from '@/components/about-us/FeatureSection';
-import { HeroSection } from '@/components/about-us/HeroSection';
-import { ImageGallery } from '@/components/about-us/ImageGallery';
-import { Newsletter } from '@/components/about-us/Newsletter';
-import { WhyGiriToday } from '@/components/home-page/why-giri-today/WhyGiri';
-import { Layout } from '@/components/common/Layout';
+import { FeatureSection } from '../components/about-us/FeatureSection';
+import { HeroSection } from '../components/about-us/HeroSection';
+import { ImageGallery } from '../components/about-us/ImageGallery';
+import { Newsletter } from '../components/about-us/Newsletter';
+import { WhyGiriToday } from '../components/home-page/why-giri-today/WhyGiri';
+import { Layout } from '../components/common/Layout';
+import { useGetAllImages } from '@/hooks/useGetAllImages';
 import { HeroBackground } from '@/components/home-page/hero/Hero';
 
 export function AboutUsPage() {
+  const imageSrc = useGetAllImages();
   return (
     <Layout>
       <main className="flex-grow flex flex-col gap-10">
-      <HeroBackground/>
+        <HeroBackground image={imageSrc?.['home-page-ankara-background']?.url || ''} />
         <HeroSection />
         <ImageGallery />
         <FeatureSection />

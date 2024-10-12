@@ -1,8 +1,7 @@
-import { AboutGiri, CareersHeader } from '@/components/career-page/Header';
-import InfoCard from '@/components/career-page/InfoCard';
-import { Layout } from '@/components/common/Layout';
-import { OpenRolesComponent } from '@/components/career-page/OpenRoles';
-
+import { AboutGiri, CareersHeader } from '../components/career-page/Header';
+import InfoCard from '../components/career-page/InfoCard';
+import { Layout } from '../components/common/Layout';
+import { OpenRolesComponent } from '../components/career-page/OpenRoles';
 
 interface CareerPageProps {}
 
@@ -11,7 +10,7 @@ const CareerPage: React.FC<CareerPageProps> = () => {
     {
       imageSrc:
         'https://cdn.builder.io/api/v1/image/assets/TEMP/261964a154516d5a2391cfd174dd895726a06794a6a83ac3ad17889eb1d2ba4f?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
-      title: 'How we work at Giritoday',
+      title: 'How we work at Giri',
       description:
         'Our work model enhances flexibility, impact, sustainability and work life balance.',
     },
