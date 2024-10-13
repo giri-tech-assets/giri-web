@@ -107,7 +107,7 @@ const heroConfig: HeroConfig = {
       { static: 'Giri Showcases', animated: 'Your Authentic African Products' },
       {
         static: 'Sell More',
-        animated: 'Ship Faster, Earn More, and Grow Your Business',
+        animated: 'Ship Faster, Earn Bigger, Grow Your Business',
       },
     ],
     buyer: [
@@ -141,10 +141,10 @@ const heroConfig: HeroConfig = {
     },
   },
   animationConfig: {
-    interval: 20000,
-    textDuration: 1500,
-    imageDelay: 200,
-    imageFadeDuration: 1000,
+    interval: 7500,
+    textDuration: 1000,
+    imageDelay: 100,
+    imageFadeDuration: 500,
   },
 };
 

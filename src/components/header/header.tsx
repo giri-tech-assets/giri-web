@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CustomLink from '../CustomLink';
 import useGetVisitorType, { VisitorType } from '../../hooks/useGetVisitorType';
+import { useLocation } from '@reach/router';
 
 const headerConfig = {
   styles: {
@@ -21,15 +22,10 @@ const headerConfig = {
       'fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg z-40 transition-transform transform ease-in-out duration-300',
     mobileMenuContent: 'flex flex-col items-start p-8 space-y-6 mt-16',
     navItem: 'hover:text-amber-400 transition-colors relative z-10',
+    activeNavItem: 'text-amber-400 font-bold',
     contactButton:
       'inline-block px-4 py-2 text-sm font-semibold text-center bg-amber-400 rounded-lg shadow-md text-violet-950 hover:bg-amber-500 transition-colors',
   },
-  navigationItems: [
-    { title: 'Home', link: '/' },
-    { title: 'About Us', link: '/about-us' },
-    { title: 'Careers', link: '/careers' },
-    { title: 'FAQ', link: '/#faq' },
-  ],
   logo: {
     src: 'https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
     alt: 'Company Logo',
@@ -100,14 +96,35 @@ const Logo: React.FC = () => {
 };
 
 const Navigation: React.FC = () => {
-  const { navigationItems, styles } = headerConfig;
+  const { visitorType } = useGetVisitorType();
+  const location = useLocation();
+  const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
+
+  const navigationItems = [
+    { title: 'Home', link: '/' },
+    { title: 'About Us', link: '/about-us' },
+    { title: 'Careers', link: '/careers' },
+    { title: 'FAQ', link: faqLink },
+  ];
+  const { styles } = headerConfig;
+
   return (
     <nav className="hidden md:flex space-x-8 items-center text-base text-white">
-      {navigationItems.map(({ title, link }) => (
-        <CustomLink key={title} to={link} className={styles.navItem}>
-          {title}
-        </CustomLink>
-      ))}
+      {navigationItems.map(({ title, link }) => {
+        return (
+          <CustomLink
+            key={title}
+            to={link}
+            className={`${styles.navItem} ${
+              location.pathname.slice(0, -1) === link
+                ? styles.activeNavItem
+                : ''
+            }`}
+          >
+            {title}
+          </CustomLink>
+        );
+      })}
     </nav>
   );
 };
@@ -115,25 +132,47 @@ const Navigation: React.FC = () => {
 const MobileNavigation: React.FC<{
   setIsMenuOpen: (isOpen: boolean) => void;
 }> = ({ setIsMenuOpen }) => {
-  const { navigationItems, styles } = headerConfig;
+  const { styles } = headerConfig;
+  const { visitorType } = useGetVisitorType();
+  const location = useLocation();
+  const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
+
+  const navigationItems = [
+    { title: 'Home', link: '/' },
+    { title: 'About Us', link: '/about-us' },
+    { title: 'Careers', link: '/careers' },
+    { title: 'FAQ', link: faqLink },
+  ];
+
   return (
     <nav className="flex flex-col space-y-6 text-base text-gray-800">
-      {navigationItems.map(({ title, link }) => (
-        <CustomLink
-          key={title}
-          to={link}
-          className={styles.navItem}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {title}
-        </CustomLink>
-      ))}
+      {navigationItems.map(({ title, link }) => {
+        console.log(
+          'location.pathname',
+          location.pathname,
+          link,
+          location.pathname.slice(0, -1),
+        );
+        return (
+          <CustomLink
+            key={title}
+            to={link}
+            className={`${styles.navItem} ${
+              location.pathname.slice(0, -1) === link
+                ? styles.activeNavItem
+                : ''
+            }`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {title}
+          </CustomLink>
+        );
+      })}
     </nav>
   );
 };
-
 const ContactButton: React.FC = () => {
-  const { contactButton, styles } = headerConfig;
+  const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
   const text =
     visitorType === VisitorType.Buyer ? 'Sell on Giri' : 'Buy on Giri';
@@ -175,3 +214,4 @@ const CloseIcon: React.FC = () => (
 );
 
 export default Header;
+

@@ -10,6 +10,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, ...props }) => {
   const isInternal = /^\/(?!\/)/.test(to);
   const isAnchor = to.includes('#');
 
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isAnchor) {
       e.preventDefault();
@@ -18,11 +19,11 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, ...props }) => {
     }
   };
 
-  // if (isInternal) {
-  //   return <Link to={to} {...props} onClick={handleClick} />;
-  // }
+  if (isInternal) {
+    return <Link to={to} {...props} />;
+  }
 
-  return <a href={to} {...props} />;
+  return <a href={to} {...props} onClick={handleClick} />;
 };
 
 export default CustomLink;
