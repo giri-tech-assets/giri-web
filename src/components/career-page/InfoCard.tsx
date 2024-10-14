@@ -22,7 +22,12 @@ const InfoCard: React.FC<InfoCardProps> = ({ imageSrc, title, description }) => 
           whileHover={{ rotate: 360 }}
           transition={{ duration: 0.5 }}
         >
-          <img loading="lazy" src={imageSrc} alt="" className="object-contain self-stretch my-auto aspect-square w-[45px]" />
+          <img
+            loading="lazy"
+            src={imageSrc}
+            alt=""
+            className="object-contain self-stretch my-auto aspect-square w-[45px]"
+          />
         </motion.div>
         <motion.div
           className="flex flex-col mt-7 w-full"
@@ -32,7 +37,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ imageSrc, title, description }) => 
         >
           <div className="flex flex-col w-full">
             <motion.h2
-              className="text-xl font-semibold leading-7 text-neutral-800"
+              className="text-xl font-semibold leading-7 text-neutral-800 mb-5"
               initial={{ x: -20 }}
               animate={{ x: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}

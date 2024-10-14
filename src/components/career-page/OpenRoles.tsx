@@ -5,6 +5,7 @@ import {
   Briefcase,
   ChevronDown,
   ChevronUp,
+  Layers,
 } from 'lucide-react';
 import ApplyForRoleForm from './ApplyForm';
 import {
@@ -14,6 +15,7 @@ import {
   productDesignerJob,
 } from './data';
 import { Linkify } from '../common/Linkify';
+import { Notification } from '../../components/common/Notification';
 
 export interface JobListing {
   title: string;
@@ -50,7 +52,7 @@ const roleItemConfig = {
   styles: {
     container: 'border rounded-lg p-4 hover:shadow-md transition-shadow',
     header: 'flex justify-between items-start',
-    title: 'text-xl font-semibold',
+    title: 'text-xl font-semibold mb-2',
     metaInfo: 'flex flex-wrap gap-4 text-sm text-gray-600',
     toggleButton:
       'bg-[#020089] text-white px-4 py-2 rounded hover:bg-[#0300a9] transition-colors flex items-center min-w-[100px]',
@@ -82,7 +84,9 @@ const RoleItem: React.FC<RoleItemProps> = ({
             <span className="flex items-center">
               <MapPin size={16} className="mr-1" /> {role.location}
             </span>
-            <span>{role.type}</span>
+            <span className="flex items-center">
+              <Layers size={16} className="mr-1" /> {role.type}
+            </span>
           </div>
         </div>
         <button onClick={onToggle} className={styles.toggleButton}>
@@ -228,6 +232,7 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
   const [applyingForRole, setApplyingForRole] = useState<JobListing | null>(
     null,
   );
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const { styles } = openRolesConfig;
 
@@ -254,13 +259,42 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
     setApplyingForRole(null);
   };
 
-  const handleSubmitApplication = (formData: any) => {
-    setApplyingForRole(null);
+  const handleSubmitApplication = async (formData: any) => {
+    try {
+      // Simulate sending an email (replace with actual email sending logic)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log('Application sent to jobs@giritoday.com:', formData);
+
+      setApplyingForRole(null);
+      setSubmitSuccess(true);
+      setOpenRoleId(null);
+
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 100000);
+    } catch (error) {
+      console.error('Error sending application:', error);
+      // Handle error (e.g., show error message to user)
+    }
   };
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Open Roles</h2>
+
+      {submitSuccess && (
+        <Notification
+          key={'success'}
+          type={'success'}
+          duration={60000}
+          message={
+            'Your application has been successfully sent to jobs@giritoday.com.'
+          }
+          onClose={() => {
+            setOpenRoleId(null);
+          }}
+        />
+      )}
 
       <div className={styles.filters}>
         <div className={styles.searchContainer}>

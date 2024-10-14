@@ -2,8 +2,8 @@ import { JobListing } from "./OpenRoles";
 
 export const backendEngineerJob: JobListing = {
   title: "Backend Engineer",
-  location: "Remote",
-  type: "Full-time",
+  location: "Lagos, Nigeria",
+  type: "Full-Time (CONTRACT)",
   department: "Engineering",
   salary: 'N7,000,000 - N8,000,000 (Annually)',
   description: "Giri is on a mission to bridge the gap between African small and medium-scale businesses and global markets. Our e-commerce platform enables talented craftspeople to share their unique creations with customers worldwide, fostering economic growth and cultural exchange.",
@@ -42,8 +42,8 @@ export const backendEngineerJob: JobListing = {
 export const productManagerJob: JobListing = {
   title: "Technical Program Manager",
   location: "Lagos, Nigeria",
-  salary: 'N6,000,000 - N7,000,000 (Annually)',
   type: "Full-Time (CONTRACT)",
+  salary: 'N6,000,000 - N7,000,000 (Annually)',
   department: "Product Management",
   description: `Product and Engineering Program Management directs a team of Program Managers with various skills to deliver cross-functional pivotal initiatives that address critical business needs and actualize GiriToday’s long-term company strategy.
 This candidate will support our Core Product & Enablement organizations by partnering with leadership to identify high-priority and complex work that will benefit from strong program management support. They are motivated by project, program and portfolio management work. They have a dynamic approach to team management and development and look for ways to match team skill sets with program work. They cultivate a curiosity about agile software development principles and continuous process improvement. They are responsible for setting and leading all aspects of the standards for our Program Management team. Most importantly, they are an adept communicator and collaborator who strives to get teams to achieve their full potential.
@@ -79,8 +79,8 @@ This role requires your presence in GiriToday’s Lagos Office once or twice per
 
 export const frontendEngineerJob: JobListing = {
   title: "Frontend Engineer",
-  location: "Remote",
-  type: "Full-time",
+  location: "Lagos, Nigeria",
+  type: "Full-Time (CONTRACT)",
   salary: 'N7,000,000 - N8,000,000 (Annually)',
   department: "Engineering",
   description: "Are you passionate about empowering small businesses and showcasing African craftsmanship to the world? Join GirToday, an exciting e-commerce startup connecting African artisans with international customers. We\'re seeking a talented Backend Engineer to take ownership of our backend services that powers the platform and help us scale our impact.",

@@ -2,6 +2,13 @@ import { useCallback, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { VisitorType, useGetVisitorType } from './useGetVisitorType';
 
+
+interface SignupResponse {
+  success: boolean;
+  message: string;
+  error?: string;
+}
+
 const SIGNUP_BUYER = gql`
   mutation SignupBuyer($email: String!) {
     insert_waitlist_buyer_signup_one(object: { email: $email }) {
@@ -39,7 +46,6 @@ export const useWaitlistSignup = () => {
   const handleSignup = useCallback(
     async (emailToSignup: string) => {
       if (!emailToSignup) {
-        console.log('emailo', { emailToSignup });
         setSignupStatus(SignupStatus.Idle);
         return;
       }
@@ -50,6 +56,10 @@ export const useWaitlistSignup = () => {
         } else if (visitorType === 'seller') {
           await signupSeller({ variables: { email: emailToSignup } });
         }
+        sendSignupRequest({
+          email: emailToSignup,
+          type: visitorType,
+        });
         setSignupStatus(SignupStatus.Success);
         // We're not resetting the email here anymore
       } catch (error: any) {
@@ -73,3 +83,65 @@ export const useWaitlistSignup = () => {
     setSignupStatus,
   };
 };
+
+export async function sendSignupRequest({
+  email,
+  type,
+  name,
+  coverLetter,
+  resume,
+}: {
+  email: string;
+  type: VisitorType;
+  coverLetter?: string;
+  resume?: string;
+  name?: string;
+}): Promise<SignupResponse> {
+  try {
+    const response = await fetch(
+      `${process.env.GATSBY_GCLOUD_MAILER_ENDPOINT}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, type, name, coverLetter, resume }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data: SignupResponse = await response.json();
+
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+    return {
+      success: true,
+      message: data.message || 'Signup successful',
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      if (error.message.includes('Uniqueness violation')) {
+        return {
+          success: false,
+          message: 'User already exists',
+          error: 'ALREADY_EXISTS',
+        };
+      }
+      return {
+        success: false,
+        message: `Error during signup: ${error.message}`,
+        error: 'SIGNUP_FAILED',
+      };
+    }
+    return {
+      success: false,
+      message: 'An unknown error occurred',
+      error: 'UNKNOWN_ERROR',
+    };
+  }
+}
