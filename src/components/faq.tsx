@@ -13,7 +13,7 @@ const faqContent = {
     {
       question: 'How long does shipping take?',
       answer:
-        'Shipping times vary depending on your location and product. Typically, domestic orders are delivered within 3-5 business days, while international orders may take 7-14 business days. Customers will be able to use our tracking system and sign up for order updates',
+        'Delivery durations differ based on your geographical location. Domestic shipments arrive within 3-5 working days, whereas international shipments take 7-14 working days. Please note that these timeframes are estimates and may vary due to circumstances beyond our control.',
     },
     {
       question: 'Do you offer international shipping?',

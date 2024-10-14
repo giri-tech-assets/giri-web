@@ -11,7 +11,7 @@ const homePageContent = {
     title: 'CONNECTING AFRICAN SELLERS TO GLOBAL AUDIENCE',
     subtitle:
       '"At Giri, we make shopping for arts, crafts, and locally made products easy, fast, reliable and seamless for our global audience. "',
-    ctaText: 'Join the Waitlist',
+    ctaText: 'Join our NewsLetter',
   },
 };
 

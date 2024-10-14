@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { SignupButton } from '@/components/common/SignupButton';
 
 interface Feature {
   icon: React.ReactNode;
@@ -183,12 +184,8 @@ export const HowItWorks: React.FC = () => {
             <FeatureCard key={index} {...feature} />
           ))}
         </div>
-
-        <div className={styles.buttonContainer}>
-          <a href="mailto:giri@giritoday.com" className={styles.button}>
-            {buttonText}
-            <ArrowRight className={styles.buttonIcon} size={20} />
-          </a>
+        <div className="flex justify-center">
+          <SignupButton buttonText={buttonText} />
         </div>
       </div>
     </section>

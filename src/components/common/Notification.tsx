@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { XCircle, CheckCircle, AlertCircle, InfoIcon } from 'lucide-react';
+import { error } from 'console';
 
 type NotificationType = 'error' | 'success' | 'warning' | 'info';
 
@@ -40,8 +41,15 @@ export const Notification: React.FC<NotificationProps> = ({
 
   const Icon = iconMap[type];
 
+  if (!message) {
+    return null;
+  }
+
   return (
-    <div className={`flex items-center p-4 mb-4 text-sm rounded-lg border ${colorMap[type]}`} role="alert">
+    <div
+      className={`flex items-center p-4 mb-4 text-sm rounded-lg border ${colorMap[type]}`}
+      role="alert"
+    >
       <Icon className="flex-shrink-0 inline w-5 h-5 mr-3" />
       <span className="sr-only">{type}</span>
       <div>{message}</div>
@@ -58,43 +66,3 @@ export const Notification: React.FC<NotificationProps> = ({
   );
 };
 
-// Usage example
-export const NotificationExample: React.FC = () => {
-  const [notifications, setNotifications] = React.useState<Array<{ id: number; type: NotificationType; message: string }>>([]);
-
-  const addNotification = (type: NotificationType, message: string) => {
-    const id = Date.now();
-    setNotifications(prev => [...prev, { id, type, message }]);
-  };
-
-  const removeNotification = (id: number) => {
-    setNotifications(prev => prev.filter(notification => notification.id !== id));
-  };
-
-  return (
-    <div className="fixed top-5 right-5 w-72">
-      {notifications.map(({ id, type, message }) => (
-        <Notification
-          key={id}
-          type={type}
-          message={message}
-          onClose={() => removeNotification(id)}
-        />
-      ))}
-      <div className="mt-4 space-x-2">
-        <button onClick={() => addNotification('error', 'This is an error message')} className="px-4 py-2 bg-red-500 text-white rounded">
-          Add Error
-        </button>
-        <button onClick={() => addNotification('success', 'This is a success message')} className="px-4 py-2 bg-green-500 text-white rounded">
-          Add Success
-        </button>
-        <button onClick={() => addNotification('warning', 'This is a warning message')} className="px-4 py-2 bg-yellow-500 text-white rounded">
-          Add Warning
-        </button>
-        <button onClick={() => addNotification('info', 'This is an info message')} className="px-4 py-2 bg-blue-500 text-white rounded">
-          Add Info
-        </button>
-      </div>
-    </div>
-  );
-};

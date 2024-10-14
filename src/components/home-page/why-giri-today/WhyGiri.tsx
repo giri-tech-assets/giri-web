@@ -2,6 +2,7 @@ import React from 'react';
 import { FeatureCard } from './FeatureCard';
 import useGetVisitorType from '../../../hooks/useGetVisitorType';
 import { Button } from '@/components/common';
+import { SignupButton } from '@/components/common/SignupButton';
 
 interface Feature {
   icon: string;
@@ -58,7 +59,7 @@ const sellerContent: ContentType = {
   headerTag: 'Features for Sellers',
   title: 'Why Sell on Giri?',
   description:
-    'Leverage Giri’s AI-driven platform to connect with buyers who love authentic African products, grow your business, and reach a global audience. Sell more, ship faster, earn more.',
+    'Leverage Giri’s AI-driven platform to connect with buyers who love authentic African products, grow your business, and reach a global audience. Sell more, ship faster, earn more!.',
   features: [
     {
       icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/668307f3799a2b078193b68e673ef8ea50d7c61b56beb0f8ccefa49ecf0ea87c?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
@@ -110,7 +111,7 @@ export const WhyGiriToday: React.FC = () => {
 
   const isBuyer = visitorType === 'buyer';
   const content = isBuyer ? buyerContent : sellerContent;
-  const ctaText = isBuyer ? 'Join the waitlist' : 'Join the waitlist';
+  const ctaText = isBuyer ? 'Join our NewsLetter' : 'Join the waitlist';
 
   return (
     <section className={styles.section}>
@@ -127,10 +128,7 @@ export const WhyGiriToday: React.FC = () => {
           </div>
           <h2 className={styles.title}>{content.title}</h2>
         </div>
-        <p className={styles.description}>
-          {content.description}
-          <div> {<Button text={ctaText} variant={'accent'} />}</div>
-        </p>
+        <p className={styles.description}>{content.description}</p>
       </header>
       <div className={styles.featuresContainer}>
         {content.features.map((feature, index) => (

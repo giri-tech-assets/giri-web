@@ -15,9 +15,7 @@ import {
 } from './data';
 
 export interface JobListing {
-  id: number;
   title: string;
-  company: string;
   department: string;
   location: string;
   type: string;
@@ -166,7 +164,7 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
-  const [openRoleId, setOpenRoleId] = useState<number | null>(null);
+  const [openRoleId, setOpenRoleId] = useState<string | null>(null);
   const [applyingForRole, setApplyingForRole] = useState<JobListing | null>(
     null,
   );
@@ -184,7 +182,7 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
     ...new Set(roles?.map((role) => role.department)),
   ];
 
-  const handleToggle = (id: number) => {
+  const handleToggle = (id: string) => {
     setOpenRoleId(openRoleId === id ? null : id);
   };
 
@@ -231,10 +229,10 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
         <div className={styles.rolesList}>
           {filteredRoles?.map((role) => (
             <RoleItem
-              key={role.id}
+              key={role.title}
               role={role}
-              isOpen={openRoleId === role.id}
-              onToggle={() => handleToggle(role.id)}
+              isOpen={openRoleId === role.title}
+              onToggle={() => handleToggle(role.title)}
               onApply={() => handleApply(role)}
             />
           ))}

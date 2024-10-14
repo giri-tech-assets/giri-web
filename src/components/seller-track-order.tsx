@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGetAllImages } from '@/hooks/useGetAllImages';
 import { ArrowRight } from 'lucide-react';
+import { SignupButton } from './common/SignupButton';
 
 export const TrackYourOrder: React.FC = () => {
   const allImages = useGetAllImages();
@@ -49,13 +50,7 @@ export const TrackYourOrder: React.FC = () => {
             {content.orderStatus.additionalInfo}
           </p>
           <div>
-            <a
-              href="mailto:giri@giritoday.com"
-              className={content.button.className}
-            >
-              {content.button.text}
-              <ArrowRight className={content.button.buttonIcon} size={20} />
-            </a>
+            <SignupButton buttonText={content.button.text} />
           </div>
         </div>
 

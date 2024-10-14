@@ -17,7 +17,7 @@ const policyContent: PolicyContent = {
   title: 'RETURN AND REFUND POLICY',
   lastUpdated: 'October 2024',
   introduction:
-    'Welcome to Giriytoday! Thank you for shopping with us. We strive to ensure that all our buyers are happy with their purchases. This policy explains how to return items and request refunds if you are unsatisfied with your purchase.',
+    'Welcome to Giri! Thank you for shopping with us. We strive to ensure that all our buyers are happy with their purchases. This policy explains how to return items and request refunds if you are unsatisfied with your purchase.',
   sections: [
     {
       title: 'Eligibility',

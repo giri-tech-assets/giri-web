@@ -17,7 +17,7 @@ export const policyContent: PolicyContent = {
   title: 'SELLER POLICY',
   lastUpdated: 'October 2024',
   introduction:
-    'Welcome to Giriytoday! This Seller policy is part of our Terms of Use and outlines the rules and guidelines you agree to follow when selling on our platform. Please read the below carefully.',
+    'Welcome to Giri! This Seller policy is part of our Terms of Use and outlines the rules and guidelines you agree to follow when selling on our platform. Please read the below carefully.',
   sections: [
     {
       title: 'Becoming a Seller',

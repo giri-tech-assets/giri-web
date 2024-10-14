@@ -36,32 +36,40 @@ const newsletterConfig = {
 };
 
 export const Newsletter: React.FC = () => {
-  const { handleSignup, setEmail, email, signupStatus } = useWaitlistSignup();
+  const { handleSignup, setEmail, email, signupStatus, setSignupStatus } =
+    useWaitlistSignup();
   const [showToast, setShowToast] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSignupStatus(SignupStatus.Idle);
     handleSignup();
     setShowToast(true);
   };
 
-  const errorMessage = {
+  const messagesMap = {
     [SignupStatus.Error]: 'An error occurred. Please try again.',
-    [SignupStatus.AlreadyExists]: 'You are already on the waitlist.',
+    [SignupStatus.AlreadyExists]:
+      'You are already on the waitlist. We`ll keep you updated!',
     [SignupStatus.Success]:
       'You are in! You will be the first to know when we are live.',
   };
+
+  const message = messagesMap[signupStatus as keyof typeof messagesMap];
+  const status =
+    signupStatus === SignupStatus.Success
+      ? 'success'
+      : signupStatus === SignupStatus.Error
+      ? 'error'
+      : 'info';
 
   return (
     <section id={'newsletter'} className={newsletterConfig.styles.section}>
       {showToast && (
         <Notification
           key={signupStatus}
-          type={signupStatus === SignupStatus.Success ? 'success' : 'error'}
-          message={
-            errorMessage[signupStatus as keyof typeof errorMessage] ??
-            'An error occurred. Please try again.'
-          }
+          type={status}
+          message={message}
           onClose={() => setShowToast(false)}
         />
       )}

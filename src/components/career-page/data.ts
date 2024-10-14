@@ -1,9 +1,7 @@
 import { JobListing } from "./OpenRoles";
 
 export const backendEngineerJob: JobListing = {
-  id: 1,
   title: "Backend Engineer",
-  company: "GirTodayi",
   location: "Remote",
   type: "Full-time",
   department: "Engineering",
@@ -40,9 +38,7 @@ export const backendEngineerJob: JobListing = {
 
 
 export const productManagerJob: JobListing = {
-  id: 3,
   title: "Product Manager Content Moderation",
-  company: "Giri",
   location: "Lagos, Nigeria",
   type: "Full-Time (CONTRACT)",
   department: "Product Management",
@@ -74,9 +70,7 @@ export const productManagerJob: JobListing = {
 };
 
 export const frontendEngineerJob: JobListing = {
-  id: 1,
   title: "Frontend Engineer",
-  company: "Giri",
   location: "Remote",
   type: "Full-time",
   department: "Engineering",
@@ -120,9 +114,7 @@ export const frontendEngineerJob: JobListing = {
 };
 
 export const productDesignerJob: JobListing = {
-  id: 2,
   title: "Product Designer - Design Systems",
-  company: "Giri",
   location: "Lagos, Nigeria",
   type: "Full-Time (CONTRACT)",
   department: "UX & Design",

@@ -3,6 +3,7 @@ import { useGetAllImages } from '../../../hooks/useGetAllImages';
 
 import Button from '../../common/Button';
 import useGetVisitorType, { VisitorType } from '@/hooks/useGetVisitorType';
+import { SignupButton } from '@/components/common/SignupButton';
 
 interface HeroConfigStyles {
   wrapper: string;
@@ -135,14 +136,14 @@ const heroConfig: HeroConfig = {
       className: 'width-50px',
     },
     buyer: {
-      text: 'Start Shopping on Giri',
+      text: 'Join our newsletter',
       variant: 'accent',
       className: 'width-50px',
     },
   },
   animationConfig: {
-    interval: 7500,
-    textDuration: 1000,
+    interval: 8000,
+    textDuration: 100,
     imageDelay: 100,
     imageFadeDuration: 500,
   },
@@ -227,10 +228,11 @@ const MainContent: React.FC<MainContentProps> = ({ onPhraseChange }) => {
       <AnimatedText onPhraseChange={onPhraseChange} />
       <p className={styles.paragraph}>{missionStatement}</p>
       <div className="mt-6">
-        <Button
-          text={button.text}
-          variant={button.variant as any}
-          className={button.className}
+        <SignupButton
+          buttonText={button.text}
+          inputPlaceholder={'Email Address'}
+          shouldUseModal={true}
+          submittedText="Thank you for signing up!"
         />
       </div>
     </section>

@@ -12,7 +12,7 @@ const SIGNUP_BUYER = gql`
 
 const SIGNUP_SELLER = gql`
   mutation SignupSeller($email: String!) {
-    insert_waitlist_seller_signup_one(object: { email: $email }) {
+    insert_waitlist_signup_seller_one(object: { email: $email }) {
       email
     }
   }
@@ -66,5 +66,6 @@ export const useWaitlistSignup = () => {
     handleSignup,
     signupStatus,
     visitorType,
+    setSignupStatus,
   };
 };

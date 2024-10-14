@@ -1,3 +1,4 @@
+import { SignupButton } from '@/components/common/SignupButton';
 import Button from '../../common/Button';
 import React from 'react';
 
@@ -7,7 +8,11 @@ interface HeroProps {
   ctaText: string;
 }
 
-export const ConnectSellerHero: React.FC<HeroProps> = ({ title, subtitle, ctaText }) => {
+export const ConnectSellerHero: React.FC<HeroProps> = ({
+  title,
+  subtitle,
+  ctaText,
+}) => {
   return (
     <header className="relative flex flex-col justify-center items-center px-8 py-8 w-full min-h-[480px] md:px-20 md:py-8">
       <img
@@ -25,9 +30,10 @@ export const ConnectSellerHero: React.FC<HeroProps> = ({ title, subtitle, ctaTex
             {subtitle}
           </p>
         </div>
-        <Button text={ctaText} variant={'accent'} />
+        <div className="mt-4">
+          <SignupButton buttonText={ctaText} />
+        </div>
       </div>
     </header>
   );
 };
-
