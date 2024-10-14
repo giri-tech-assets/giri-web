@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "gatsby develop",
-    "build": "npm run clean cleangatsby build",
+    "build": "gatsby clean && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "type-check": "tsc --noEmit",
