@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Modal } from './Modal';
 import { ArrowRight } from 'lucide-react';
@@ -29,18 +29,18 @@ const FormContent: React.FC<FormContentProps> = ({
   variant = 'accent',
 }) => {
   return (
-    <form className="flex w-full" onSubmit={handleSubmit}>
+    <form className="flex flex-col sm:flex-row w-full" onSubmit={handleSubmit}>
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder={inputPlaceholder}
-        className="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-900 text-blue-950"
+        className="flex-grow min-w-[200px] px-4 py-2 border border-gray-300 rounded-t sm:rounded-l sm:rounded-t-none focus:outline-none focus:ring-2 focus:ring-blue-900 text-blue-950"
         required
       />
       <button
         type="submit"
-        className="px-4 py-2 text-blue-950 bg-yellow-400 hover:bg-yellow-500 rounded-r font-semibold transition-colors duration-300"
+        className="px-4 py-2 mt-2 sm:mt-0 text-blue-950 bg-yellow-400 hover:bg-yellow-500 rounded-b sm:rounded-r sm:rounded-b-none font-semibold transition-colors duration-300"
       >
         Submit
       </button>
@@ -70,13 +70,13 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
         await handleSignup(email);
         setIsSubmitted(true);
         setIsFormVisible(false);
-        setEmail(''); // Reset email only after successful signup
+        setEmail('');
       } catch (error) {
         console.error('Signup error:', error);
         setSignupStatus(SignupStatus.Error);
       }
     },
-    [email, handleSignup, setSignupStatus, setEmail, signupStatus],
+    [email, handleSignup, setSignupStatus, setEmail],
   );
 
   const handleClose = useCallback(() => {
@@ -99,13 +99,10 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
     accent: 'bg-yellow-400',
   };
 
-  const baseButtonClasses = `
-${color[variant]}
-${textColor}
-  `.trim();
+  const baseButtonClasses = `${color[variant]} ${textColor}`.trim();
 
   return (
-    <div className="w-80">
+    <div className="w-full max-w-xs">
       <AnimatePresence mode="wait">
         {!isFormVisible && !isSubmitted && (
           <div className="text-center">
@@ -144,7 +141,7 @@ ${textColor}
         {isSubmitted && (
           <motion.div
             key="submitted-text"
-            className="w-full px-4 py-2 text-white  bg-blue-950 rounded"
+            className="w-full px-4 py-2 text-white bg-blue-950 rounded"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}

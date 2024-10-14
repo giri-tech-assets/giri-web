@@ -98,8 +98,8 @@ const Logo: React.FC = () => {
 const Navigation: React.FC = () => {
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
-  const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
-  const homeLink = visitorType === VisitorType.Buyer ? '/buy' : '/sell';
+  const faqLink = visitorType === VisitorType.Buyer ? '/shop#faq' : '/sell#faq';
+  const homeLink = visitorType === VisitorType.Buyer ? '/shop' : '/sell';
 
   const navigationItems = [
     { title: 'Home', link: homeLink },
@@ -136,8 +136,8 @@ const MobileNavigation: React.FC<{
   const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
-  const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
-  const homeLink = visitorType === VisitorType.Buyer ? '/buy' : '/sell';
+  const faqLink = visitorType === VisitorType.Buyer ? '/shop#faq' : '/sell#faq';
+  const homeLink = visitorType === VisitorType.Buyer ? '/shop' : '/sell';
 
   const navigationItems = [
     { title: 'Home', link: homeLink },
@@ -177,8 +177,8 @@ const ContactButton: React.FC = () => {
   const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
   const text =
-    visitorType === VisitorType.Buyer ? 'Sell on Giri' : 'Buy on Giri';
-  const link = visitorType === VisitorType.Buyer ? '/sell' : '/buy';
+    visitorType === VisitorType.Buyer ? 'Sell on Giri' : 'Shop on Giri';
+  const link = visitorType === VisitorType.Buyer ? '/sell' : '/shop';
 
   return (
     <a href={link} className={styles.contactButton}>

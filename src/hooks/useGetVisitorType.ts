@@ -18,7 +18,7 @@ export const useGetVisitorType = () => {
 
       if (url.includes('/sell')) {
         setVisitorType(VisitorType.Seller);
-      } else if (url.includes('/buy')) {
+      } else if (url.includes('/shop')) {
         setVisitorType(VisitorType.Buyer);
       } else {
         if (!loading && !error) {
