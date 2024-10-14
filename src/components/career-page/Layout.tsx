@@ -78,7 +78,7 @@ function renderFootNotes() {
 
   return (
     <section className="mb-6">
-      <h2 className="text-xl font-semibold mb-2">Why Join GiriToday:</h2>
+      <h2 className="text-xl font-semibold mb-2">Why Join Giri:</h2>
       <ul className={'list-disc pl-5'}>
         {whyReasons.map((item, idx) => (
           <li key={idx}>{item}</li>
@@ -86,22 +86,21 @@ function renderFootNotes() {
       </ul>
       <h2 className="text-xl font-semibold mb-2 mt-5">What's Next:</h2>
       <p>
-        If you're interested in joining the team at GiriToday, please share your
+        If you're interested in joining the team at Giri, please share your
         resume with us and feel free to include a cover letter if you'd like.
-        GiriToday is a place that values individuality and variety. We don't
-        want you to be like everyone else -- we want you to be like you! So tell
-        us what you're all about.
+        Giri is a place that values individuality and variety. We don't want you
+        to be like everyone else -- we want you to be like you! So tell us what
+        you're all about.
       </p>
       <h2 className="text-xl font-semibold mb-2 mt-5">Our Promise:</h2>
       <p className="mt-4">
-        At GiriToday, we believe that a diverse, equitable and inclusive
-        workplace furthers relevance, resilience, and longevity. We encourage
-        people from all backgrounds, ages, abilities, and experiences to apply.
-        GiriToday is proud to be an equal opportunity workplace. We are
-        committed to equal employment opportunities regardless of race, color,
-        ancestry, religion, sex, national origin, sexual orientation, age,
-        citizenship, marital status, disability, gender identity or Veteran
-        status.
+        At Giri, we believe that a diverse, equitable and inclusive workplace
+        furthers relevance, resilience, and longevity. We encourage people from
+        all backgrounds, ages, abilities, and experiences to apply. Giri is
+        proud to be an equal opportunity workplace. We are committed to equal
+        employment opportunities regardless of race, color, ancestry, religion,
+        sex, national origin, sexual orientation, age, citizenship, marital
+        status, disability, gender identity or Veteran status.
       </p>
 
       <p className="mt-5">

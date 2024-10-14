@@ -19,8 +19,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Starter DatoCMS Homepage",
-        short_name: "Gatsby",
+        name: "Giri- Africa's Global Marketplace",
+        short_name: "GiriToday",
         start_url: "/",
         // These can be imported once ESM support lands
         background_color: "#ffffff",

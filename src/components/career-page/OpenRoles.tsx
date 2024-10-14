@@ -136,13 +136,13 @@ function renderAboutGiri({ salary, aboutTheRoleBlob, teamLike }: AboutSection) {
     <section className="mb-6">
       <h2 className="text-xl font-semibold mb-2">About Giri</h2>
       <p className="pb-5">
-        GiriToday is a global marketplace for unique and creative goods. We
-        build, power, and evolve the tools and technologies that connect
-        millions of African sellers with millions of buyers around the world. As
-        a GiriToday employee, you will tackle unique, meaningful, and
-        large-scale problems alongside passionate coworkers, all the while
-        making a rewarding impact with both our sellers and buyers community. At
-        GiriToday, our sellers sell the product while we tell the stories..
+        Giri is a global marketplace for unique and creative goods. We build,
+        power, and evolve the tools and technologies that connect millions of
+        African sellers with millions of buyers around the world. As a Giri
+        employee, you will tackle unique, meaningful, and large-scale problems
+        alongside passionate coworkers, all the while making a rewarding impact
+        with both our sellers and buyers community. At Giri, our sellers sell
+        the product while we tell the stories..
       </p>
       <div className="flex flex-row">
         <p className="font-bold pr-3 mb-2">Salary Range: </p>
@@ -177,22 +177,21 @@ function renderFootNotes() {
     <section className="mb-6">
       <h2 className="text-xl font-semibold mb-2 mt-5">What's Next:</h2>
       <p>
-        If you're interested in joining the team at GiriToday, please share your
+        If you're interested in joining the team at Giri, please share your
         resume with us and feel free to include a cover letter if you'd like.
-        GiriToday is a place that values individuality and variety. We don't
-        want you to be like everyone else -- we want you to be like you! So tell
-        us what you're all about.
+        Giri is a place that values individuality and variety. We don't want you
+        to be like everyone else -- we want you to be like you! So tell us what
+        you're all about.
       </p>
       <h2 className="text-xl font-semibold mb-2 mt-5">Our Promise:</h2>
       <p className="mt-4">
-        At GiriToday, we believe that a diverse, equitable and inclusive
-        workplace furthers relevance, resilience, and longevity. We encourage
-        people from all backgrounds, ages, abilities, and experiences to apply.
-        GiriToday is proud to be an equal opportunity workplace. We are
-        committed to equal employment opportunities regardless of race, color,
-        ancestry, religion, sex, national origin, sexual orientation, age,
-        citizenship, marital status, disability, gender identity or Veteran
-        status.
+        At Giri, we believe that a diverse, equitable and inclusive workplace
+        furthers relevance, resilience, and longevity. We encourage people from
+        all backgrounds, ages, abilities, and experiences to apply. Giri is
+        proud to be an equal opportunity workplace. We are committed to equal
+        employment opportunities regardless of race, color, ancestry, religion,
+        sex, national origin, sexual orientation, age, citizenship, marital
+        status, disability, gender identity or Veteran status.
       </p>
       <div className=" mt-5">
         <Linkify

@@ -181,9 +181,9 @@ const ContactButton: React.FC = () => {
   const link = visitorType === VisitorType.Buyer ? '/sell' : '/shop';
 
   return (
-    <a href={link} className={styles.contactButton}>
-      {text}
-    </a>
+    <CustomLink to={link} className={styles.contactButton}>
+      {text}{' '}
+    </CustomLink>
   );
 };
 

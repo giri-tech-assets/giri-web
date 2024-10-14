@@ -11,7 +11,7 @@ const heroConfig = {
     heading:
       'Bringing Local Markets to Global Doorsteps – Discover Authentic African Goods, from Anywhere!',
     paragraph:
-      'Giri is an African E-Commerce Platform connecting global buyers with local African sellers! We bridge the gap between local African artisans and the global market, showcasing unique goods, specialty foods, vibrant clothing, and rich cultural heritage. Wherever you are in the world, Giritoday brings Africa to you, making it easy to discover and purchase authentic African products and experience the beauty of African culture',
+      'Giri is an African E-Commerce Platform connecting global buyers with local African sellers! We bridge the gap between local African artisans and the global market, showcasing unique goods, specialty foods, vibrant clothing, and rich cultural heritage. Wherever you are in the world, Giri brings Africa to you, making it easy to discover and purchase authentic African products and experience the beauty of African culture',
   },
 };
 

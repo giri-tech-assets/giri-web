@@ -103,7 +103,7 @@ export const policyContent: PolicyContent = {
     {
       title: 'Changes to This Policy',
       content:
-        'GiriToday reserves the right to update this policy occasionally. Any changes will be posted here, and continued use of our platform means you accept the new terms.',
+        'Giri reserves the right to update this policy occasionally. Any changes will be posted here, and continued use of our platform means you accept the new terms.',
     },
     {
       title: 'Contact Us',
@@ -116,7 +116,7 @@ export const policyContent: PolicyContent = {
     },
   ],
   acknowledgment:
-    'By becoming a seller on GiriToday, you acknowledge that you have read, understood, and agree to comply with the terms of this Seller Policy. Thank you for being a part of our marketplace!',
+    'By becoming a seller on Giri, you acknowledge that you have read, understood, and agree to comply with the terms of this Seller Policy. Thank you for being a part of our marketplace!',
 };
 
 export const SellerPolicy: React.FC = () => {

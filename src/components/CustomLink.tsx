@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, GatsbyLinkProps } from 'gatsby';
 
 interface CustomLinkProps extends Omit<GatsbyLinkProps<{}>, 'ref'> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({ to, ...props }) => {
