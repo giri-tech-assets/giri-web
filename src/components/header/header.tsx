@@ -99,9 +99,10 @@ const Navigation: React.FC = () => {
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
   const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
+  const homeLink = visitorType === VisitorType.Buyer ? '/buy' : '/sell';
 
   const navigationItems = [
-    { title: 'Home', link: '/' },
+    { title: 'Home', link: homeLink },
     { title: 'About Us', link: '/about-us' },
     { title: 'Careers', link: '/careers' },
     { title: 'FAQ', link: faqLink },
@@ -136,9 +137,10 @@ const MobileNavigation: React.FC<{
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
   const faqLink = visitorType === VisitorType.Buyer ? '/buy#faq' : '/sell#faq';
+  const homeLink = visitorType === VisitorType.Buyer ? '/buy' : '/sell';
 
   const navigationItems = [
-    { title: 'Home', link: '/' },
+    { title: 'Home', link: homeLink },
     { title: 'About Us', link: '/about-us' },
     { title: 'Careers', link: '/careers' },
     { title: 'FAQ', link: faqLink },

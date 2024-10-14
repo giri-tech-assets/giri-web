@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkify } from '../common/Linkify';
 
 const content = {
   intro:
@@ -22,6 +23,7 @@ export const JobCardLayout: React.FC<JobCardLayoutProps> = ({ children }) => {
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">{children}</div>
+      {renderFootNotes()}
     </div>
   );
 };
@@ -60,27 +62,54 @@ export const JobCard: React.PropsWithChildren<any> = ({ children }: any) => {
           <p>{content.aboutGiri}</p>
         </section>
         {children}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Why Join Giri</h2>
-          <ul className="list-disc pl-5">
-            {content.whyJoinGiri.map((reason, index) => (
-              <li key={index}>{reason}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Interested?</h2>
-          <p>{content.interest}</p>
-        </section>
-
-        <section>
-          <p className="font-semibold mb-4">{content.apply}</p>
-          <button className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
-            Apply Now
-          </button>
-        </section>
       </div>
     </div>
   );
 };
+
+function renderFootNotes() {
+  const whyReasons = [
+    'Make a real impact: Your work will directly contribute to empowering African artisans and businesses.',
+    "Growth opportunity: As an early-stage startup, there's plenty of room for professional development and leadership roles.",
+    'Collaborative culture: Work with a diverse, passionate team dedicated to making a difference.',
+    'Competitive compensation: We offer a salary package commensurate with your experience and skills.',
+    'Flexible work arrangements and a culture that values work-life balance',
+  ];
+
+  return (
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2">Why Join GiriToday:</h2>
+      <ul className={'list-disc pl-5'}>
+        {whyReasons.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
+      <h2 className="text-xl font-semibold mb-2 mt-5">What's Next:</h2>
+      <p>
+        If you're interested in joining the team at GiriToday, please share your
+        resume with us and feel free to include a cover letter if you'd like.
+        GiriToday is a place that values individuality and variety. We don't
+        want you to be like everyone else -- we want you to be like you! So tell
+        us what you're all about.
+      </p>
+      <h2 className="text-xl font-semibold mb-2 mt-5">Our Promise:</h2>
+      <p className="mt-4">
+        At GiriToday, we believe that a diverse, equitable and inclusive
+        workplace furthers relevance, resilience, and longevity. We encourage
+        people from all backgrounds, ages, abilities, and experiences to apply.
+        GiriToday is proud to be an equal opportunity workplace. We are
+        committed to equal employment opportunities regardless of race, color,
+        ancestry, religion, sex, national origin, sexual orientation, age,
+        citizenship, marital status, disability, gender identity or Veteran
+        status.
+      </p>
+
+      <p className="mt-5">
+        <Linkify
+          text="  To apply, upload your resume to www.giritoday.com/careers or send your
+        resume to jobs@giritoday.com. We look forward to meeting you!"
+        />
+      </p>
+    </section>
+  );
+}

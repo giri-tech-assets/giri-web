@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import {useCountryLocation } from './useGetLocation'; // Assuming this is the hook we created earlier
-
+import { useCountryLocation } from './useGetLocation';
 
 
 export const enum VisitorType {
  Seller = 'seller',
  Buyer = 'buyer',
 }
+
+
 export const useGetVisitorType = () => {
   const [visitorType, setVisitorType] = useState<VisitorType>(VisitorType.Buyer);
   const { country, loading, error } = useCountryLocation();

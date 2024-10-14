@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Modal } from './Modal';
 import { ArrowRight } from 'lucide-react';
 import { SignupStatus, useWaitlistSignup } from '@/hooks/useWaitlistSignup';
+import { ButtonProps } from './Button';
 
 interface AnimatedEmailSignupProps {
   buttonText: string;
   inputPlaceholder?: string;
   submittedText?: string;
   shouldUseModal?: boolean;
+  variant?: 'primary' | 'secondary' | 'accent';
 }
 
 interface FormContentProps {
@@ -16,10 +18,17 @@ interface FormContentProps {
   setEmail: (email: string) => void;
   handleSubmit: (e: React.FormEvent) => void;
   inputPlaceholder: string;
+  variant?: ButtonProps['variant'];
 }
 
-const FormContent: React.FC<FormContentProps> = React.memo(
-  ({ email, setEmail, handleSubmit, inputPlaceholder }) => (
+const FormContent: React.FC<FormContentProps> = ({
+  email,
+  setEmail,
+  handleSubmit,
+  inputPlaceholder,
+  variant = 'accent',
+}) => {
+  return (
     <form className="flex w-full" onSubmit={handleSubmit}>
       <input
         type="email"
@@ -36,14 +45,14 @@ const FormContent: React.FC<FormContentProps> = React.memo(
         Submit
       </button>
     </form>
-  ),
-);
+  );
+};
 
 export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
   buttonText,
   inputPlaceholder = 'Email Address',
-  submittedText = 'Thank you for signing up!',
   shouldUseModal = false,
+  variant = 'accent',
 }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { handleSignup, setEmail, email, signupStatus, setSignupStatus } =
@@ -55,14 +64,19 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
   }, []);
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
-      console.log('called');
-      handleSignup();
-      setIsSubmitted(true);
-      setIsFormVisible(false);
+      try {
+        await handleSignup(email);
+        setIsSubmitted(true);
+        setIsFormVisible(false);
+        setEmail(''); // Reset email only after successful signup
+      } catch (error) {
+        console.error('Signup error:', error);
+        setSignupStatus(SignupStatus.Error);
+      }
     },
-    [signupStatus],
+    [email, handleSignup, setSignupStatus, setEmail, signupStatus],
   );
 
   const handleClose = useCallback(() => {
@@ -78,7 +92,17 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
 
   const message = messagesMap[signupStatus as keyof typeof messagesMap];
 
-  console.log('signupStatus', signupStatus, email);
+  const textColor = variant === 'primary' ? 'text-white' : 'text-gray-900';
+  const color: Record<ButtonProps['variant'], string> = {
+    primary: 'bg-blue-950',
+    secondary: 'bg-gray-900',
+    accent: 'bg-yellow-400',
+  };
+
+  const baseButtonClasses = `
+${color[variant]}
+${textColor}
+  `.trim();
 
   return (
     <div className="w-80">
@@ -87,7 +111,7 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
           <div className="text-center">
             <motion.button
               key="signup-button"
-              className="bg-yellow-400 hover:bg-blue-950 hover:text-white  text-blue-950 font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300"
+              className={`${baseButtonClasses} font-medium py-3 px-6 rounded-full inline-flex items-center transition duration-300`}
               onClick={handleButtonClick}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -120,12 +144,12 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
         {isSubmitted && (
           <motion.div
             key="submitted-text"
-            className="w-full px-4 py-2 text-center text-white bg-blue-950 rounded font-semibold"
+            className="w-full px-4 py-2 text-white  bg-blue-950 rounded"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {submittedText}
+            {message}
           </motion.div>
         )}
       </AnimatePresence>

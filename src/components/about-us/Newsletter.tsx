@@ -43,7 +43,7 @@ export const Newsletter: React.FC = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSignupStatus(SignupStatus.Idle);
-    handleSignup();
+    handleSignup(email);
     setShowToast(true);
   };
 

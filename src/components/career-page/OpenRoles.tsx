@@ -13,6 +13,7 @@ import {
   frontendEngineerJob,
   productDesignerJob,
 } from './data';
+import { Linkify } from '../common/Linkify';
 
 export interface JobListing {
   title: string;
@@ -24,7 +25,11 @@ export interface JobListing {
   requirements: string[];
   niceToHave?: string[];
   perks?: string[];
-  applicationInstructions: string;
+  salary: string;
+  teamLike?: {
+    description: string;
+    items: string[];
+  };
 }
 
 interface RoleItemProps {
@@ -45,12 +50,12 @@ const roleItemConfig = {
   styles: {
     container: 'border rounded-lg p-4 hover:shadow-md transition-shadow',
     header: 'flex justify-between items-start',
-    title: 'text-xl font-semibold mb-2',
+    title: 'text-xl font-semibold',
     metaInfo: 'flex flex-wrap gap-4 text-sm text-gray-600',
     toggleButton:
       'bg-[#020089] text-white px-4 py-2 rounded hover:bg-[#0300a9] transition-colors flex items-center min-w-[100px]',
     details: 'mt-4 pt-4 border-t',
-    sectionTitle: 'font-semibold',
+    sectionTitle: 'font-semibold mb-2 text-xl',
     list: 'list-disc pl-5',
     applyButton:
       'bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors',
@@ -91,16 +96,14 @@ const RoleItem: React.FC<RoleItemProps> = ({
       </div>
       {isOpen && (
         <div className={styles.details}>
-          {renderAboutGiri()}
-          {renderSection('What You’ll Do', role.responsibilities)}
-          {renderSection("What We're Looking For", role.requirements)}
-          {role.niceToHave &&
-            renderSection('Nice-to-Have Skills', role.niceToHave)}
-          {role.perks && renderSection('Why Join Giri', role.perks)}
-          <div className="mb-4">
-            <h4 className={styles.sectionTitle}>How to Apply:</h4>
-            <p>{role.applicationInstructions}</p>
-          </div>
+          {renderAboutGiri({
+            salary: role.salary,
+            aboutTheRoleBlob: role.description,
+            teamLike: role.teamLike,
+          })}
+          {renderSection('In this role, you’ll', role.responsibilities)}
+          {renderSection('Qualifications', role.requirements)}
+          {renderFootNotes()}
           <button onClick={onApply} className={styles.applyButton}>
             Apply Now
           </button>
@@ -112,7 +115,7 @@ const RoleItem: React.FC<RoleItemProps> = ({
   function renderSection(title: string, items: string[]) {
     return (
       <div className="mb-4">
-        <h4 className={styles.sectionTitle}>{title}:</h4>
+        <h2 className={styles.sectionTitle}>{title}:</h2>
         <ul className={styles.list}>
           {items.map((item, idx) => (
             <li key={idx}>{item}</li>
@@ -123,24 +126,82 @@ const RoleItem: React.FC<RoleItemProps> = ({
   }
 };
 
-function renderAboutGiri() {
+interface AboutSection {
+  salary: string;
+  aboutTheRoleBlob: string;
+  teamLike?: JobListing['teamLike'];
+}
+function renderAboutGiri({ salary, aboutTheRoleBlob, teamLike }: AboutSection) {
   return (
     <section className="mb-6">
-      <p className="pb-5">
-        Are you passionate about empowering small businesses and showcasing
-        African craftsmanship to the world? Join GirToday, an exciting
-        e-commerce startup connecting African artisans with international
-        customers. We're seeking a talented Backend Engineer to take ownership
-        of our backend services that powers the platform and help us scale our
-        impact.
-      </p>
       <h2 className="text-xl font-semibold mb-2">About Giri</h2>
-      <p>
-        Giri is on a mission to bridge the gap between African small and
-        medium-scale businesses and global markets. Our e-commerce platform
-        enables talented craftspeople to share their unique creations with
-        customers worldwide, fostering economic growth and cultural exchange.'
+      <p className="pb-5">
+        GiriToday is a global marketplace for unique and creative goods. We
+        build, power, and evolve the tools and technologies that connect
+        millions of African sellers with millions of buyers around the world. As
+        a GiriToday employee, you will tackle unique, meaningful, and
+        large-scale problems alongside passionate coworkers, all the while
+        making a rewarding impact with both our sellers and buyers community. At
+        GiriToday, our sellers sell the product while we tell the stories..
       </p>
+      <div className="flex flex-row">
+        <p className="font-bold pr-3 mb-2">Salary Range: </p>
+        <p>{salary}</p>
+      </div>
+      <h2 className="text-xl font-semibold mb-2 mt-5">What’s the role?</h2>
+      <p>{aboutTheRoleBlob}</p>
+
+      {teamLike && (
+        <>
+          <h2 className="text-xl font-semibold mb-2 mt-5">
+            What's this team like at Giri
+          </h2>
+          <p>
+            {teamLike.description} <br />
+            <br />
+          </p>
+        </>
+      )}
+
+      <ul className={roleItemConfig.styles.list}>
+        {teamLike?.items?.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function renderFootNotes() {
+  return (
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 mt-5">What's Next:</h2>
+      <p>
+        If you're interested in joining the team at GiriToday, please share your
+        resume with us and feel free to include a cover letter if you'd like.
+        GiriToday is a place that values individuality and variety. We don't
+        want you to be like everyone else -- we want you to be like you! So tell
+        us what you're all about.
+      </p>
+      <h2 className="text-xl font-semibold mb-2 mt-5">Our Promise:</h2>
+      <p className="mt-4">
+        At GiriToday, we believe that a diverse, equitable and inclusive
+        workplace furthers relevance, resilience, and longevity. We encourage
+        people from all backgrounds, ages, abilities, and experiences to apply.
+        GiriToday is proud to be an equal opportunity workplace. We are
+        committed to equal employment opportunities regardless of race, color,
+        ancestry, religion, sex, national origin, sexual orientation, age,
+        citizenship, marital status, disability, gender identity or Veteran
+        status.
+      </p>
+      <div className=" mt-5">
+        <Linkify
+          text={
+            'To apply, upload your resume to www.giritoday.com/careers or send your resume to jobs@giritoday.com or Click Apply Below. We look forward to meeting you!'
+          }
+          linkClassName="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors duration-300"
+        />
+      </div>
     </section>
   );
 }

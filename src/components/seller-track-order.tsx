@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetAllImages } from '@/hooks/useGetAllImages';
 import { ArrowRight } from 'lucide-react';
 import { SignupButton } from './common/SignupButton';
+import { ImagePopup } from './common/ImagePopUp';
 
 export const TrackYourOrder: React.FC = () => {
   const allImages = useGetAllImages();
@@ -56,11 +57,13 @@ export const TrackYourOrder: React.FC = () => {
 
         {/* Image Column */}
         <div className="md:w-1/2">
-          <img
-            src={content.image.src}
-            alt={content.image.alt}
-            className={content.image.className}
-          />
+          <ImagePopup>
+            <img
+              src={content.image.src}
+              alt={content.image.alt}
+              className={content.image.className}
+            />
+          </ImagePopup>
         </div>
       </div>
     </div>

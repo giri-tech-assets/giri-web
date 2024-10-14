@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
-import { VisitorType, useGetVisitorType } from './useGetVisitorType'; // Assuming this hook exists
+import { VisitorType, useGetVisitorType } from './useGetVisitorType';
 
 const SIGNUP_BUYER = gql`
   mutation SignupBuyer($email: String!) {
@@ -36,29 +36,33 @@ export const useWaitlistSignup = () => {
   const [signupSeller] = useMutation(SIGNUP_SELLER);
   const isBuyer = visitorType === VisitorType.Buyer;
 
-  const handleSignup = async () => {
-    if (!email) {
-      setSignupStatus(SignupStatus.Idle);
-      return;
-    }
-
-    try {
-      if (isBuyer) {
-        await signupBuyer({ variables: { email } });
-      } else if (visitorType === 'seller') {
-        await signupSeller({ variables: { email } });
-      }
-      setSignupStatus(SignupStatus.Success);
-      setEmail('');
-    } catch (error: any) {
-      if (error.message.includes('Uniqueness violation')) {
-        setSignupStatus(SignupStatus.AlreadyExists);
+  const handleSignup = useCallback(
+    async (emailToSignup: string) => {
+      if (!emailToSignup) {
+        console.log('emailo', { emailToSignup });
+        setSignupStatus(SignupStatus.Idle);
         return;
       }
-      console.error('Error signing up:', error.message);
-      setSignupStatus(SignupStatus.Error);
-    }
-  };
+
+      try {
+        if (isBuyer) {
+          await signupBuyer({ variables: { email: emailToSignup } });
+        } else if (visitorType === 'seller') {
+          await signupSeller({ variables: { email: emailToSignup } });
+        }
+        setSignupStatus(SignupStatus.Success);
+        // We're not resetting the email here anymore
+      } catch (error: any) {
+        if (error.message.includes('Uniqueness violation')) {
+          setSignupStatus(SignupStatus.AlreadyExists);
+          return;
+        }
+        console.error('Error signing up:', error.message);
+        setSignupStatus(SignupStatus.Error);
+      }
+    },
+    [isBuyer, visitorType, signupBuyer, signupSeller],
+  );
 
   return {
     email,
