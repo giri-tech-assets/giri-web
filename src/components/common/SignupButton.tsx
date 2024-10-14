@@ -86,7 +86,7 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
   const messagesMap = {
     [SignupStatus.Error]: 'An error occurred. Please try again.',
     [SignupStatus.AlreadyExists]:
-      'You are already on the waitlist. We`ll keep you updated!',
+      "We already have your email. We'll keep in touch!",
     [SignupStatus.Success]: "Thank you for signing up! We'll keep you updated!",
   };
 

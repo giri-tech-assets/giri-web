@@ -50,9 +50,9 @@ export const Newsletter: React.FC = () => {
   const messagesMap = {
     [SignupStatus.Error]: 'An error occurred. Please try again.',
     [SignupStatus.AlreadyExists]:
-      'You are already on the waitlist. We`ll keep you updated!',
+      "We already have your email. We'll keep in touch!",
     [SignupStatus.Success]:
-      'You are in! You will be the first to know when we are live.',
+      'Thanks for signing up! Keep an eye on your email. You will hear from us soon!',
   };
 
   const message = messagesMap[signupStatus as keyof typeof messagesMap];
