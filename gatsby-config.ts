@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: '48f99ef2f4919a8444b4101c043ec3',
+        apiToken: process.env.DATOCMS_API_TOKEN,
         environment: 'main',
         previewMode: false,
       },
@@ -42,7 +42,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-tidio-chat',
       options: {
-        tidioKey: 'bdzekyema5graqeqzgmc5yfvljg5jgfp',
+        tidioKey: process.env.TIDIO_API_TOKEN,
         enableDuringDevelop: true, // Optional. Disables Tidio chat widget when running Gatsby dev server. Defaults to true.
       },
     },
@@ -64,7 +64,7 @@ const config: GatsbyConfig = {
         fieldName: 'hasura',
         uri: 'https://darling-sponge-48.hasura.app/v1/graphql',
         headers: {
-          'x-hasura-admin-secret': 'czcmfonL8cTnFa0EBk1FjE1PjyxsJIYdrksplESuO3zY7w0IB1K0mI2wTwxPiCyC'
+          'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET,
         },
       },
     },
@@ -75,7 +75,7 @@ const config: GatsbyConfig = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          'G-WY472GMRDX'
+          process.env.GA_TRACKING_ID, // Google Analytics / GA
         ],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
