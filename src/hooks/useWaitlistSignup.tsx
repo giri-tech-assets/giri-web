@@ -32,7 +32,15 @@ export enum SignupStatus {
   Idle = 'idle',
 }
 
-export const useWaitlistSignup = () => {
+type SignupType = 'waitlist' | 'newsletter' | 'job';
+
+interface SignupRequest {
+  signupType?: SignupType;
+}
+
+export const useWaitlistSignup = ({
+  signupType = 'newsletter',
+}: SignupRequest) => {
   const [email, setEmail] = useState('');
   const [signupStatus, setSignupStatus] = useState<SignupStatus>(
     SignupStatus.Idle,
@@ -105,7 +113,14 @@ export async function sendSignupRequest({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, type, name, coverLetter, resume }),
+        body: JSON.stringify({
+          receiver_email: email,
+          template_type: type,
+          // TODO: fix for job application
+          // name,
+          // coverLetter,
+          // resume,
+        }),
       },
     );
 

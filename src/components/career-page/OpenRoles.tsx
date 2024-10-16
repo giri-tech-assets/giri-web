@@ -16,6 +16,7 @@ import {
 } from './data';
 import { Linkify } from '../common/Linkify';
 import { Notification } from '../../components/common/Notification';
+import { sendSignupRequest } from '@/hooks/useWaitlistSignup';
 
 export interface JobListing {
   title: string;
@@ -261,16 +262,9 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
 
   const handleSubmitApplication = async (formData: any) => {
     try {
-      // Simulate sending an email (replace with actual email sending logic)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      console.log('Application sent to jobs@giritoday.com:', formData);
-
       setApplyingForRole(null);
       setSubmitSuccess(true);
       setOpenRoleId(null);
-
-      // Hide success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 100000);
     } catch (error) {
       console.error('Error sending application:', error);

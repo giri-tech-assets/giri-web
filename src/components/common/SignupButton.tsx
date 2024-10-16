@@ -56,7 +56,7 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
 }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { handleSignup, setEmail, email, signupStatus, setSignupStatus } =
-    useWaitlistSignup();
+    useWaitlistSignup({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleButtonClick = useCallback(() => {

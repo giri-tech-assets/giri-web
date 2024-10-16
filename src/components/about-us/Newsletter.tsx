@@ -37,7 +37,7 @@ const newsletterConfig = {
 
 export const Newsletter: React.FC = () => {
   const { handleSignup, setEmail, email, signupStatus, setSignupStatus } =
-    useWaitlistSignup();
+    useWaitlistSignup({});
   const [showToast, setShowToast] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
