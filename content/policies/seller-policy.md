@@ -22,12 +22,12 @@ sections:
       will process the payment and transfer it to your account, minus our
       commission or fees, based on our payment schedule.
   - content: >-
-      * **Timely Shipping**: Ship orders on time, and provide accurate tracking
+      - **Timely Shipping**: Ship orders on time, and provide accurate tracking
       information. Delayed shipments may affect your seller rating.
 
-      * **Packaging**: Ensure items are packaged safely to prevent damage during delivery.
+      - **Packaging**: Ensure items are packaged safely to prevent damage during delivery.
 
-      * **Order Cancellations**: Contact us if you need to cancel an order. Frequent cancellations may impact your account.
+      - **Order Cancellations**: Contact us if you need to cancel an order. Frequent cancellations may impact your account.
     title: Order Fulfillment
   - title: Returns and Refunds
     content: Follow our return and refund policy. If a buyer requests a return, work
@@ -38,12 +38,12 @@ sections:
       sales earnings. You can view the fee breakdown in your account.
   - title: Account Management
     content: >-
-      * **Keep Information Updated**: Ensure your contact information, bank
+      - **Keep Information Updated**: Ensure your contact information, bank
       details, and product listings are always accurate.
 
-      * **Maintain Good Ratings**: Provide excellent service and high-quality products to keep your seller ratings high.
+      - **Maintain Good Ratings**: Provide excellent service and high-quality products to keep your seller ratings high.
 
-      * **Suspensions and Terminations**: Giritoday reserves the right to suspend or terminate your account if you violate this policy or if we receive negative feedback from buyers with respect to your product.
+      - **Suspensions and Terminations**: Giritoday reserves the right to suspend or terminate your account if you violate this policy or if we receive negative feedback from buyers with respect to your product.
   - title: Compliance with Laws
     content: At Giritoday, we strive to be compliant with all relevant laws and
       regulations so ensure that your products and business practices are
