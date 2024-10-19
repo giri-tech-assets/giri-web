@@ -1,8 +1,7 @@
 ---
 type: buyer
-question: How can I track my order?
-answer: Yes, we ship to most countries worldwide. International shipping rates
-  and times vary by destination. Please check our shipping page for more
-  details.
-order: 4
+question: What payment methods do you accept?
+answer: We accept major credit cards (Visa, MasterCard, American Express),
+  PayPal, and Apple Pay. All transactions are securely processed.
+order: 5
 ---
