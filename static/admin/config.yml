@@ -3,9 +3,9 @@ backend:
   branch: main
   repo: giri-tech-assets/gatsby-starter-decap-cms
   commit_messages:
-    create: "Create {{collection}} “{{slug}}”"
-    update: "Update {{collection}} “{{slug}}”"
-    delete: "Delete {{collection}} “{{slug}}”"
+    create: "Create {{collection}} "
+    update: "Update {{collection}} "
+    delete: "Delete {{collection}} "
     uploadMedia: "[skip ci] Upload “{{path}}”"
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
@@ -36,6 +36,7 @@ collections:
     view_groups:
       - label: Type
         field: type
+
   - name: 'policies'
     label: 'Policies'
     folder: 'content/policies'

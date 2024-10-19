@@ -6,8 +6,11 @@ import {
   AccordionTrigger,
 } from '../components/common/Accordion';
 import { Layout } from '../components/common';
-import { ReturnRefundPolicy } from '@/components/policy/BuyersandRefund';
-import { SellerPolicy } from '@/components/policy/Seller';
+import {
+  IPolicyContent,
+  PolicyContent,
+} from '@/components/policy/PolicyContent';
+import { usePageContentQueries } from '@/hooks/pages-queries/usePageContentQueries';
 
 interface TermsOfUseProps {
   websiteUrl: string;
@@ -25,18 +28,11 @@ const termsOfUseContent = {
 };
 
 const TermsOfUse: React.FC<TermsOfUseProps> = () => {
-  const sections = [
-    {
-      id: 'seller-policy',
-      component: <SellerPolicy />,
-      title: 'Seller Policy',
-    },
-    {
-      id: 'return-refund-policy',
-      component: <ReturnRefundPolicy />,
-      title: 'Return and Refund Policy',
-    },
-  ];
+  const { policyQuery } = usePageContentQueries();
+  const policyContents: IPolicyContent[] = policyQuery.map(
+    (content: any) => content.frontmatter,
+  );
+
   return (
     <Layout>
       <div className={termsOfUseContent.styles.container}>
@@ -45,13 +41,15 @@ const TermsOfUse: React.FC<TermsOfUseProps> = () => {
         </h1>
 
         <Accordion type="multiple">
-          {sections.map((section) => (
-            <AccordionItem key={section.id} value={section.id}>
-              <AccordionTrigger value={section.id}>
+          {policyContents.map((section, index) => (
+            <AccordionItem key={section.title + index} value={section.title}>
+              <AccordionTrigger value={section.title}>
                 {section.title}
               </AccordionTrigger>
-              <AccordionContent value={section.id}>
-                <div className="mt-4">{section.component}</div>
+              <AccordionContent value={section.title}>
+                <div className="mt-4">
+                  <PolicyContent policyContent={section} />
+                </div>
               </AccordionContent>
             </AccordionItem>
           ))}

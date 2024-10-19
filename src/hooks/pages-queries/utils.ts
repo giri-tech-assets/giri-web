@@ -7,7 +7,7 @@ export function formatFAQData(originalData: any) {
     sellerFAQ: []
   };
 
-  originalData.forEach((group: any) => {
+  originalData?.forEach((group: any) => {
     const faqType = group.fieldValue + 'FAQ';
 
     const formattedFAQs = group.nodes.map((node: any) => ({

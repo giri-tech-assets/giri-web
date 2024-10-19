@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { formatFAQData } from './utils';
 
-const FAQ_QUERY = graphql`
-  query GroupedFAQQuery {
-    allMarkdownRemark(
+const SITE_CONTENT_QUERY = graphql`
+  query SiteContentQuery {
+    faqs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/faq/" } }
       sort: { frontmatter: { order: ASC } }
     ) {
@@ -18,33 +18,46 @@ const FAQ_QUERY = graphql`
         }
       }
     }
-  }
-`;
-
-
-const POLICY_QUERY = graphql`
-  query PolicyQuery {
-    markdownRemark(fileAbsolutePath: { regex: "/content/policies/" }) {
-      frontmatter {
-        title
-        lastUpdated
-        introduction
-        sections {
+    policies: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/policies/" } }
+    ) {
+      nodes {
+        frontmatter {
           title
-          content
+          introduction
+          sections {
+            title
+            content
+          }
+          contact
         }
-        contact
+        fileAbsolutePath
+      }
+    }
+    terms: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/terms/" } }
+    ) {
+      nodes {
+        frontmatter {
+          title
+          introduction
+          sections {
+            title
+            content
+          }
+          contact
+        }
+        fileAbsolutePath
       }
     }
   }
 `;
 
 export const usePageContentQueries = () => {
-  const faqQuery = useStaticQuery(FAQ_QUERY);
-  const policyQuery = useStaticQuery(POLICY_QUERY);
+  const queryResults = useStaticQuery(SITE_CONTENT_QUERY);
 
   return {
-    faqQuery: formatFAQData(faqQuery.allMarkdownRemark?.group) ?? {},
-    policyQuery,
+    faqQuery: formatFAQData(queryResults.faqs?.group) ?? {},
+    policyQuery: queryResults.policies?.nodes ?? [],
   };
 };

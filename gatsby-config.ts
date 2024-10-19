@@ -58,7 +58,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `policy`,
-        path: `${__dirname}/content/policy`,
+        path: `${__dirname}/content/policies`,
       },
     },
     `gatsby-transformer-remark`,
