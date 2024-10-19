@@ -1,7 +1,8 @@
 ---
 type: seller
-question: How do I manage my inventory?
-answer: You can manage your inventory through our Seller Dashboard. Here, you
-  can add new products, update stock levels, and modify product information.
+question: How and when do I get paid?
+answer: Payments are typically processed every two weeks for all settled
+  transactions. The funds will be transferred to the bank account you provided
+  during registration.
 order: 3
 ---
