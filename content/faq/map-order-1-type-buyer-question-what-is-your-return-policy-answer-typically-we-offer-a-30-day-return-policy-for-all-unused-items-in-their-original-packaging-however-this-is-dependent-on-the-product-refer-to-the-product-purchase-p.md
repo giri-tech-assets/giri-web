@@ -1,9 +1,9 @@
 ---
 type: buyer
-question: What is your return policy?
-answer: Typically we offer a 30-day return policy for all unused items in their
-  original packaging. However, this is dependent on the Product. Refer to the
-  product purchase policies. Please contact our customer service team to
-  initiate a return.
-order: 1
+question: How long does shipping take?
+answer: Delivery durations differ based on your geographical location. Domestic
+  shipments arrive within 3-5 working days, whereas international shipments take
+  7-14 working days. Please note that these timeframes are estimates and may
+  vary due to circumstances beyond our control.
+order: 2
 ---
