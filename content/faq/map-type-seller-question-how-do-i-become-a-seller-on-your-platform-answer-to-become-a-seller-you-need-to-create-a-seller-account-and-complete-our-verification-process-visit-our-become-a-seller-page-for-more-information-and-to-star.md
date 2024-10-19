@@ -1,8 +1,7 @@
 ---
 type: seller
-question: How do I become a seller on your platform?
-answer: To become a seller, you need to create a seller account and complete our
-  verification process. Visit our "Become a Seller" page for more information
-  and to start the application.
-order: 2
+question: How do I manage my inventory?
+answer: You can manage your inventory through our Seller Dashboard. Here, you
+  can add new products, update stock levels, and modify product information.
+order: 3
 ---
