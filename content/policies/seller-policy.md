@@ -62,6 +62,6 @@ sections:
       the new terms.
   - title: Contact Us
     content: "If you have any questions or need help, please reach out to us at:
-      Giritoday Technology Limited giri@giritoday.com"
+      Giritoday Technology Limited [giri@giritoday.com](giri@giritoday.com)"
 contact: Giritoday Technology Limited giri@giritoday.com
 ---
