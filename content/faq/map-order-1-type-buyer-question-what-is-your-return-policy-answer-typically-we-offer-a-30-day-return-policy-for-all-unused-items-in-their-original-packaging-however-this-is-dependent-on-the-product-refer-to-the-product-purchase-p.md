@@ -1,8 +1,8 @@
 ---
 type: seller
-question: How and when do I get paid?
-answer: Payments are typically processed every two weeks for all settled
-  transactions. The funds will be transferred to the bank account you provided
-  during registration.
+question: What support do you offer to sellers?
+answer: We offer various support services including a dedicated seller support
+  team, educational resources, and tools to help you optimize your listings and
+  sales.
 order: 3
 ---
