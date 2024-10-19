@@ -25,7 +25,9 @@ sections:
       - **Timely Shipping**: Ship orders on time, and provide accurate tracking
       information. Delayed shipments may affect your seller rating.
 
+
       - **Packaging**: Ensure items are packaged safely to prevent damage during delivery.
+
 
       - **Order Cancellations**: Contact us if you need to cancel an order. Frequent cancellations may impact your account.
     title: Order Fulfillment
@@ -41,7 +43,9 @@ sections:
       - **Keep Information Updated**: Ensure your contact information, bank
       details, and product listings are always accurate.
 
+
       - **Maintain Good Ratings**: Provide excellent service and high-quality products to keep your seller ratings high.
+
 
       - **Suspensions and Terminations**: Giritoday reserves the right to suspend or terminate your account if you violate this policy or if we receive negative feedback from buyers with respect to your product.
   - title: Compliance with Laws
@@ -58,6 +62,6 @@ sections:
       the new terms.
   - title: Contact Us
     content: "If you have any questions or need help, please reach out to us at:
-      Giritoday Technology Limited giri@giritoday.com"
+      Giritoday Technology Limited [giri@giritoday.com](giri@giritoday.com)"
 contact: Giritoday Technology Limited giri@giritoday.com
 ---
