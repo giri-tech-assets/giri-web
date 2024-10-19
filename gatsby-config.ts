@@ -47,13 +47,20 @@ const config: GatsbyConfig = {
         enableDuringDevelop: true, // Optional. Disables Tidio chat widget when running Gatsby dev server. Defaults to true.
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `blog`,
-    //     path: `${__dirname}/src/content/blog`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `faq`,
+        path: `${__dirname}/content/faq`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `policy`,
+        path: `${__dirname}/content/policy`,
+      },
+    },
     `gatsby-transformer-remark`,
     /**
      * TODO: this needs to come from envs
