@@ -1,5 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface PolicySection {
   title: string;
@@ -34,7 +35,7 @@ export const PolicyContent = ({ policyContent }: PolicyProps) => {
           <h2 className="text-xl font-semibold mb-2">
             {index + 1}. {section.title}
           </h2>
-          <Markdown>{section.content}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{section.content}</Markdown>
         </section>
       ))}
     </div>
