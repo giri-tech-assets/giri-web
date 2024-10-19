@@ -1,8 +1,7 @@
 ---
 type: seller
-question: What fees do you charge sellers?
-answer: We charge a commission on each sale, which varies depending on the
-  product category. There may also be listing fees and optional promotional
-  fees. Please check our Seller Fee Structure page for detailed information.
+question: How do I manage my inventory?
+answer: You can manage your inventory through our Seller Dashboard. Here, you
+  can add new products, update stock levels, and modify product information.
 order: 1
 ---
