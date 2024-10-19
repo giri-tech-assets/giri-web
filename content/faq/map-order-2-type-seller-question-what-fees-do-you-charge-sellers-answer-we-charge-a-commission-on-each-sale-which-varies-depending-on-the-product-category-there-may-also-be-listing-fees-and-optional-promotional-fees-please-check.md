@@ -1,8 +1,8 @@
 ---
-type: seller
-question: What fees do you charge sellers?
-answer: We charge a commission on each sale, which varies depending on the
-  product category. There may also be listing fees and optional promotional
-  fees. Please check our Seller Fee Structure page for detailed information.
-order: 2
+type: buyer
+question: Do you have Wholesale purchasing options
+answer: Giri accommodates both retail and wholesale purchases. Whether you're
+  buying a single item or in bulk, our platform connects you with suitable
+  sellers.
+order: 6
 ---
