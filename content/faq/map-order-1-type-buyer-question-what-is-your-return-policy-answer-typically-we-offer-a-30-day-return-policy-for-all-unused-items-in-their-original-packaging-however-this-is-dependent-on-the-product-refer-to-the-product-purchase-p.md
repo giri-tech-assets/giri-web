@@ -1,8 +1,8 @@
 ---
 type: seller
-question: How do I become a seller on your platform?
-answer: To become a seller, you need to create a seller account and complete our
-  verification process. Visit our "Become a Seller" page for more information
-  and to start the application.
+question: What fees do you charge sellers?
+answer: We charge a commission on each sale, which varies depending on the
+  product category. There may also be listing fees and optional promotional
+  fees. Please check our Seller Fee Structure page for detailed information.
 order: 1
 ---
