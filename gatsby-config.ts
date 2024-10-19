@@ -19,19 +19,7 @@ const config: GatsbyConfig = {
         previewMode: false,
       },
     },
-    {
-      resolve: 'gatsby-source-netlify-lfs',
-      options: {
-        // 'paths' defaults to include all 'gatsby-source-filesystem' config paths, but they can be manually overridden here
-        paths: [
-          `${__dirname}/src/blog/images`,
-          `${__dirname}/content/images`,
-        ],
-
-        placeholder: 'blurred',  //: 'dominantColor' | 'blurred' | 'none';
-
-      }
-    },
+    `gatsby-plugin-decap-cms`,
     {
       resolve: "gatsby-plugin-manifest",
       options: {
