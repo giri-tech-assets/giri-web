@@ -37,9 +37,6 @@ const Feature: React.FC<FeatureProps> = ({
     <div className="flex flex-col justify-center w-1/2 max-md:w-full">
       <h2 className="text-3xl font-bold text-slate-800 mb-2.5">{title}</h2>
       <p className="text-base text-slate-800 mb-8">{description}</p>
-      {/* <button className="gap-2.5 self-start px-5 py-4 text-base font-semibold text-white rounded-lg bg-blue-950 min-h-[50px]">
-        {buttonText}
-      </button> */}
       <SignupButton buttonText={buttonText} variant="primary"></SignupButton>
     </div>
   </div>

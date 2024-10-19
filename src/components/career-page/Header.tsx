@@ -1,5 +1,4 @@
 import React from 'react';
-import { HeroBackground } from '../home-page/hero/Hero';
 
 const careersHeaderConfig = {
   styles: {

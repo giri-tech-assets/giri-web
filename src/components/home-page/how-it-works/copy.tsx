@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
-const Integrate =
-  'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/Integrate.svg';
-const Sell =
-  'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/sell.svg';
-const Deliver =
-  'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/deliver.svg';
+// Extracted images object
+const images = {
+  integrate:
+    'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/Integrate.svg',
+  sell: 'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/sell.svg',
+  deliver:
+    'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/deliver.svg',
+  featuresIcon:
+    'https://cdn.builder.io/api/v1/image/assets/TEMP/b5d7ab23f508c7b7dbf600b889d52134d0da53212998e591c8bb9593fc454cd5?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+};
 
 interface Feature {
   imageSrc: string;
@@ -17,7 +21,7 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    imageSrc: Integrate,
+    imageSrc: images.integrate,
     title: 'INTEGRATE',
     description:
       'We set up online stores for our sellers with product catalogs, each product tailored to users experience ranging from handmade to personalized items.',
@@ -28,7 +32,7 @@ const features: Feature[] = [
     ],
   },
   {
-    imageSrc: Sell,
+    imageSrc: images.sell,
     title: 'SELL',
     description:
       'We promote your products to customers globally making sure our buyers are reached via various platforms, payment methods are simplified to ensure seamless user experience.',
@@ -39,7 +43,7 @@ const features: Feature[] = [
     ],
   },
   {
-    imageSrc: Deliver,
+    imageSrc: images.deliver,
     title: 'DELIVER',
     description:
       'All product quality is strictly monitored and carefully packaged to ensure our buyers receive items in good condition.',
@@ -92,19 +96,11 @@ export const HowItWorks: React.FC = () => {
           <div className="flex gap-5 items-center text-base font-medium leading-loose whitespace-nowrap text-neutral-900">
             <img
               loading="lazy"
-              src={
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/b5d7ab23f508c7b7dbf600b889d52134d0da53212998e591c8bb9593fc454cd5?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e'
-              }
-              alt=""
-              className={
-                'object-contain shrink-0 self-stretch my-auto w-[65px]'
-              }
+              src={images.featuresIcon}
+              alt="Features icon"
+              className="object-contain shrink-0 self-stretch my-auto w-[65px]"
             />
-            <div
-              className={
-                'object-contain shrink-0 self-stretch my-auto w-[65px]'
-              }
-            >
+            <div className="object-contain shrink-0 self-stretch my-auto w-[65px]">
               {'Features'}
             </div>
           </div>

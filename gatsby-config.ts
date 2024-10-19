@@ -20,6 +20,19 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-netlify-lfs',
+      options: {
+        // 'paths' defaults to include all 'gatsby-source-filesystem' config paths, but they can be manually overridden here
+        paths: [
+          `${__dirname}/src/blog/images`,
+          `${__dirname}/content/images`,
+        ],
+
+        placeholder: 'blurred',  //: 'dominantColor' | 'blurred' | 'none';
+
+      }
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Giri- Africa's Global Marketplace",
@@ -46,13 +59,13 @@ const config: GatsbyConfig = {
         enableDuringDevelop: true, // Optional. Disables Tidio chat widget when running Gatsby dev server. Defaults to true.
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/src/content/blog`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `blog`,
+    //     path: `${__dirname}/src/content/blog`,
+    //   },
+    // },
     `gatsby-transformer-remark`,
     /**
      * TODO: this needs to come from envs

@@ -3,11 +3,18 @@ import CustomLink from '../CustomLink';
 import useGetVisitorType, { VisitorType } from '../../hooks/useGetVisitorType';
 import { useLocation } from '@reach/router';
 
+// Extracted images object
+const images = {
+  backgroundPattern:
+    'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg',
+  logo: 'https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+};
+
 const headerConfig = {
   styles: {
     header: 'w-full mx-auto px-4 py-4 relative bg-[#020089]',
     backgroundImage: {
-      backgroundImage: `url('https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg')`,
+      backgroundImage: `url('${images.backgroundPattern}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
@@ -27,7 +34,7 @@ const headerConfig = {
       'inline-block px-4 py-2 text-sm font-semibold text-center bg-amber-400 rounded-lg shadow-md text-violet-950 hover:bg-amber-500 transition-colors',
   },
   logo: {
-    src: 'https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+    src: images.logo,
     alt: 'Company Logo',
   },
   contactButton: {
@@ -173,6 +180,7 @@ const MobileNavigation: React.FC<{
     </nav>
   );
 };
+
 const ContactButton: React.FC = () => {
   const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
@@ -216,4 +224,3 @@ const CloseIcon: React.FC = () => (
 );
 
 export default Header;
-

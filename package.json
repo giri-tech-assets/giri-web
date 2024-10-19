@@ -18,7 +18,8 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "test": "vitest",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "netfls": "netfls"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -45,6 +46,7 @@
     "gatsby-plugin-tidio-chat": "1.0.0",
     "gatsby-source-datocms": "5.1.5",
     "gatsby-source-filesystem": "5.13.1",
+    "gatsby-source-netlify-lfs": "0.0.4",
     "gatsby-transformer-remark": "6.13.1",
     "gatsby-transformer-sharp": "5.13.1",
     "lucide-react": "0.447.0",

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGetAllImages } from '../../../hooks/useGetAllImages';
 
-import Button from '../../common/Button';
 import useGetVisitorType, { VisitorType } from '@/hooks/useGetVisitorType';
 import { SignupButton } from '@/components/common/SignupButton';
 

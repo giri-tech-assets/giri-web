@@ -2,6 +2,12 @@ import React from 'react';
 import { CheckCircle } from 'lucide-react';
 import { SignupButton } from '@/components/common/SignupButton';
 
+// Extracted images object
+const images = {
+  forSellersIcon:
+    'https://cdn.builder.io/api/v1/image/assets/TEMP/7df039c68128b09ff22e0a53cc481ef468043ee18deddeb1323aa75202840228?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+};
+
 interface Feature {
   icon: React.ReactNode;
   title: string;
@@ -10,8 +16,6 @@ interface Feature {
 }
 
 const howItWorksContent = {
-  headerIcon:
-    'https://cdn.builder.io/api/v1/image/assets/TEMP/b5d7ab23f508c7b7dbf600b889d52134d0da53212998e591c8bb9593fc454cd5?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
   headerTag: 'Features',
   title: 'How It Works',
   description:
@@ -147,15 +151,8 @@ const FeatureCard: React.FC<Feature> = ({
 };
 
 export const HowItWorks: React.FC = () => {
-  const {
-    styles,
-    headerIcon,
-    headerTag,
-    title,
-    description,
-    features,
-    buttonText,
-  } = howItWorksContent;
+  const { styles, headerTag, title, description, features, buttonText } =
+    howItWorksContent;
 
   return (
     <section className={styles.section}>
@@ -165,8 +162,8 @@ export const HowItWorks: React.FC = () => {
             <div className="inline-flex items-center gap-5 text-base font-medium leading-loose whitespace-nowrap text-neutral-900">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7df039c68128b09ff22e0a53cc481ef468043ee18deddeb1323aa75202840228?placeholderIfAbsent=true&amp;apiKey=f547751f91f54b6a805677abc411ee2e"
-                alt=""
+                src={images.forSellersIcon}
+                alt="For Sellers Icon"
                 className="object-contain w-[65px]"
               />
               <div className="px-4 py-1 bg-white border border-solid shadow border-zinc-200 rounded-[1000px]">
