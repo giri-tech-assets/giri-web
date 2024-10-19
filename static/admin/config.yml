@@ -12,6 +12,7 @@ backend:
 local_backend: true
 media_folder: static/img
 public_folder: /img
+publish_mode: editorial_workflow
 
 collections:
   - name: "blog"
@@ -245,3 +246,25 @@ collections:
                   },
                 ],
             }
+
+  - name: "faq"
+    label: "FAQ"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "select", options: ["buyer", "seller"]}
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "markdown"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+    sortable_fields: ['order', 'title']
+    view_filters:
+      - label: "Buyer FAQs"
+        field: type
+        pattern: "buyer"
+      - label: "Seller FAQs"
+        field: type
+        pattern: "seller"
+    view_groups:
+      - label: Type
+        field: type
