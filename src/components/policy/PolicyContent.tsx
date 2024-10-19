@@ -1,5 +1,5 @@
-import { usePageContentQueries } from '@/hooks/pages-queries/usePageContentQueries';
 import React from 'react';
+import Markdown from 'react-markdown';
 
 interface PolicySection {
   title: string;
@@ -34,7 +34,7 @@ export const PolicyContent = ({ policyContent }: PolicyProps) => {
           <h2 className="text-xl font-semibold mb-2">
             {index + 1}. {section.title}
           </h2>
-          <div dangerouslySetInnerHTML={{ __html: section.content }} />
+          <Markdown>{section.content}</Markdown>
         </section>
       ))}
     </div>

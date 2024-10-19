@@ -10,6 +10,7 @@ const SITE_CONTENT_QUERY = graphql`
       group(field: { frontmatter: { type: SELECT } }) {
         fieldValue
         nodes {
+          excerpt(format: MARKDOWN)
           frontmatter {
             question
             answer
@@ -22,6 +23,7 @@ const SITE_CONTENT_QUERY = graphql`
       filter: { fileAbsolutePath: { regex: "/content/policies/" } }
     ) {
       nodes {
+        excerpt(format: MARKDOWN)
         frontmatter {
           title
           introduction
@@ -38,6 +40,7 @@ const SITE_CONTENT_QUERY = graphql`
       filter: { fileAbsolutePath: { regex: "/content/terms/" } }
     ) {
       nodes {
+        excerpt(format: MARKDOWN)
         frontmatter {
           title
           introduction

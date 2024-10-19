@@ -33,6 +33,7 @@ const TermsOfUse: React.FC<TermsOfUseProps> = () => {
     (content: any) => content.frontmatter,
   );
 
+
   return (
     <Layout>
       <div className={termsOfUseContent.styles.container}>
