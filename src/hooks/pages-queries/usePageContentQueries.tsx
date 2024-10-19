@@ -21,10 +21,30 @@ const FAQ_QUERY = graphql`
   }
 `;
 
+
+const POLICY_QUERY = graphql`
+  query PolicyQuery {
+    markdownRemark(fileAbsolutePath: { regex: "/content/policies/" }) {
+      frontmatter {
+        title
+        lastUpdated
+        introduction
+        sections {
+          title
+          content
+        }
+        contact
+      }
+    }
+  }
+`;
+
 export const usePageContentQueries = () => {
   const faqQuery = useStaticQuery(FAQ_QUERY);
+  const policyQuery = useStaticQuery(POLICY_QUERY);
 
   return {
     faqQuery: formatFAQData(faqQuery.allMarkdownRemark?.group) ?? {},
+    policyQuery,
   };
 };
