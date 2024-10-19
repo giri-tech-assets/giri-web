@@ -1,7 +1,8 @@
 ---
-type: buyer
-question: What payment methods do you accept?
-answer: We accept major credit cards (Visa, MasterCard, American Express),
-  PayPal, and Apple Pay. All transactions are securely processed.
+type: seller
+question: How do I become a seller on your platform?
+answer: To become a seller, you need to create a seller account and complete our
+  verification process. Visit our "Become a Seller" page for more information
+  and to start the application.
 order: 5
 ---
