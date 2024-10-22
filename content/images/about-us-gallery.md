@@ -26,4 +26,10 @@ gallery_images:
   - image: /img/african-art.jpg
     name: cow-art
     alt: painted cows
+  - image: /img/gift-couple.jpg
+    name: gift-couple
+    alt: Couple with Gift From Giri
+  - image: /img/family-gift.jpg
+    name: family-gift
+    alt: Family Gift
 ---

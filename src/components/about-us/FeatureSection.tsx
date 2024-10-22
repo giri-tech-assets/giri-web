@@ -1,6 +1,7 @@
 import { useGetAllImages } from '@/hooks/useGetAllImages';
 import React from 'react';
 import { SignupButton } from '../common/SignupButton';
+import { useGetPageImage } from '@/hooks/pages-queries/useGetPageImage';
 
 interface FeatureProps {
   title: string;
@@ -43,10 +44,10 @@ const Feature: React.FC<FeatureProps> = ({
 );
 
 export const FeatureSection: React.FC = () => {
-  const allImages = useGetAllImages();
+  const { about: aboutUsImages } = useGetPageImage();
 
-  const forSellers = allImages?.['family-gift']?.url ?? '';
-  const forBuyers = allImages?.['gift-couple']?.url ?? '';
+  const forSellers = aboutUsImages?.['family-gift']?.src ?? '';
+  const forBuyers = aboutUsImages?.['gift-couple']?.src ?? '';
 
   const featureContent = {
     seller: {

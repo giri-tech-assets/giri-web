@@ -17,11 +17,11 @@ export const useGetAllImages = () => {
     }
   }`)
 
+
+
   return  data?.datoCmsAllpageimage?.images?.reduce((acc: Record<string, any>, image: any) => {
     acc[image.filename.split('.')[0]] = image;
     return acc;
   }, {});
 }
-
-
 

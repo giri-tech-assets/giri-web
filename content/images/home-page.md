@@ -5,7 +5,7 @@ description: Pictures for home page
 page: home
 gallery_images:
   - image: /img/home-page-ankara-background.png
-    name: home-page-ankara-backgroung
+    name: home-page-ankara-background
     alt: Home page Ankara background
   - image: /img/women-clay.jpg
     name: women-clay
@@ -17,9 +17,9 @@ gallery_images:
     name: local-artisans
     alt: Local artisans
   - image: /img/crafts-shoes.jpg
-    name: crafts-people
-    alt: Crafts
-  - image: /img/happ-seller.jpg
+    name: crafts-shoes
+    alt: Craft Shoes
+  - image: /img/happy-seller.jpg
     name: happy-seller
     alt: Happy Seller on Giri Today
   - image: /img/shop-like-a-local.jpg
@@ -28,4 +28,10 @@ gallery_images:
   - image: /img/shopping-receive-good.jpg
     name: shopping-received-happy
     alt: Happy Shopper on GiriToday
+  - image: /img/spice-shop.png
+    name: spice-shop
+    alt: Happy Shop Seller on GiriToday
+  - image: /img/man-artist.jpg
+    name: man-artist
+    alt: Happy Man selling on Giri Today
 ---

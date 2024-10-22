@@ -3,6 +3,7 @@ import { useGetAllImages } from '../../../hooks/useGetAllImages';
 
 import useGetVisitorType, { VisitorType } from '@/hooks/useGetVisitorType';
 import { SignupButton } from '@/components/common/SignupButton';
+import { useGetPageImage } from '@/hooks/pages-queries/useGetPageImage';
 
 interface HeroConfigStyles {
   wrapper: string;
@@ -66,78 +67,74 @@ interface HeroConfig {
 
 const heroConfig: HeroConfig = {
   styles: {
-    wrapper: 'relative w-screen left-1/2 right-1/2 -mx-[50vw]',
-    section:
-      'relative w-full overflow-hidden bg-[#020089] pb-20 pt-4 md:pt-8 px-5 min-h-[50vh] flex items-center',
-    content: 'relative z-10 w-full flex items-center',
-    container: 'container mx-auto px-4 ',
-    flexWrapper:
-      'flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-stretch w-full ',
-    halfWidth: 'w-full lg:w-1/2 flex-shrink-0',
-    imageWrapper:
-      'w-full lg:w-1/2 flex-shrink-0 flex justify-center items-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[600px]', // Updated for responsiveness
-    image: 'w-full h-full relative rounded-3xl overflow-hidden', // Removed max-h constraint
-    main: 'flex flex-col justify-center max-w-[612px]',
-    messageSection: 'flex flex-col w-full text-slate-50 max-md:max-w-full',
-    h1: 'mt-4 text-6xl font-bold leading-[72px] max-md:max-w-full max-md:text-4xl max-md:leading-[51px]',
-    staticText: 'text-slate-50',
+    wrapper: `relative w-screen left-1/2 right-1/2 -mx-[50vw]`,
+    section: `relative w-full overflow-hidden bg-[#020089] pb-20 pt-4 md:pt-8 px-5 min-h-[50vh] flex items-center`,
+    content: `relative z-10 w-full flex items-center`,
+    container: `container mx-auto px-4 `,
+    flexWrapper: `flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-stretch w-full `,
+    halfWidth: `w-full lg:w-1/2 flex-shrink-0`,
+    imageWrapper: `w-full lg:w-1/2 flex-shrink-0 flex justify-center items-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[600px]`, // Updated for responsiveness
+    image: `w-full h-full relative rounded-3xl overflow-hidden`, // Removed max-h constraint
+    main: `flex flex-col justify-center max-w-[612px]`,
+    messageSection: `flex flex-col w-full text-slate-50 max-md:max-w-full`,
+    h1: `mt-4 text-6xl font-bold leading-[72px] max-md:max-w-full max-md:text-4xl max-md:leading-[51px]`,
+    staticText: `text-slate-50`,
     animatedText: `
       inline-block text-amber-400
       transition-all duration-1000 ease-in-out
     `,
-    animatedTextHidden: 'opacity-0 translate-y-4',
-    animatedTextVisible: 'opacity-100 translate-y-0',
-    paragraph: 'mt-4 text-xl leading-8 text-zinc-100 max-md:max-w-full',
+    animatedTextHidden: `opacity-0 translate-y-4`,
+    animatedTextVisible: `opacity-100 translate-y-0`,
+    paragraph: `mt-4 text-xl leading-8 text-zinc-100 max-md:max-w-full`,
   },
   background: {
-    className: 'absolute inset-0 z-0',
+    className: `absolute inset-0 z-0`,
     style: {
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: `center`,
+      backgroundSize: `cover`,
     },
   },
   phrases: {
     seller: [
-      { static: 'Giri Connects', animated: 'You with Global Markets' },
+      { static: `Giri Connects`, animated: `You with Global Markets` },
       {
-        static: 'Giri Empowers',
-        animated: 'Your Business with AI Powered Buyer-Matching',
+        static: `Giri Empowers`,
+        animated: `Your Business with AI Powered Buyer-Matching`,
       },
-      { static: 'Giri Showcases', animated: 'Your Authentic African Products' },
+      { static: `Giri Showcases`, animated: `Your Authentic African Products` },
       {
-        static: 'Sell More',
-        animated: 'Ship Faster, Earn Bigger, Grow Your Business',
+        static: `Sell More`,
+        animated: `Ship Faster, Earn Bigger, Grow Your Business`,
       },
     ],
     buyer: [
       {
-        static: '',
-        animated: 'Discover the stories behind the products you love!',
+        static: ``,
+        animated: `Discover the stories behind the products you love!`,
       },
-      { static: '', animated: 'Shop like a local!' },
+      { static: ``, animated: `Shop like a local!` },
       {
-        static: 'Affordable',
-        animated: 'Authentic African products delivered to You!',
+        static: `Affordable`,
+        animated: `Authentic African products delivered to You!`,
       },
-      { static: 'Support', animated: 'Sustainable African Craftsmanship' },
+      { static: `Support`, animated: `Sustainable African Craftsmanship` },
     ],
   },
   missionStatement: {
     seller: `Join Giri! Discover how to sell to a global audience. You sell the product, We tell the story!`,
-    buyer:
-      'Enjoy the best shopping experience for authentic African products with Giri—connecting you to local artisans and delivering cultural treasures right to your doorstep.',
+    buyer: `Enjoy the best shopping experience for authentic African products with Giri—connecting you to local artisans and delivering cultural treasures right to your doorstep.`,
   },
   button: {
     seller: {
-      text: 'Start Selling on Giri',
-      variant: 'accent',
-      className: 'width-50px',
+      text: `Start Selling on Giri`,
+      variant: `accent`,
+      className: `width-50px`,
     },
     buyer: {
-      text: 'Join our newsletter',
-      variant: 'accent',
-      className: 'width-50px',
+      text: `Join our newsletter`,
+      variant: `accent`,
+      className: `width-50px`,
     },
   },
   animationConfig: {
@@ -185,12 +182,19 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ onPhraseChange }) => {
     }, animationConfig.interval);
 
     return () => clearInterval(intervalId);
-  }, [currentPhraseIndex, onPhraseChange]);
+  }, [
+    animationConfig.interval,
+    animationConfig.textDuration,
+    currentPhraseIndex,
+    onPhraseChange,
+    phrases.seller.length,
+  ]);
 
   return (
     <h1 className={styles.h1}>
       <span className={styles.staticText}>
-        {phrasesSelector[currentPhraseIndex].static}{' '}
+        {phrasesSelector[currentPhraseIndex].static}
+        {` `}
       </span>
       <span
         className={`
@@ -211,7 +215,7 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = ({ onPhraseChange }) => {
-  const { styles, missionStatement: mission } = heroConfig;
+  const { styles } = heroConfig;
   const { visitorType } = useGetVisitorType();
   const missionStatement =
     visitorType === VisitorType.Seller
@@ -229,7 +233,7 @@ const MainContent: React.FC<MainContentProps> = ({ onPhraseChange }) => {
       <div className="mt-6">
         <SignupButton
           buttonText={button.text}
-          inputPlaceholder={'Email Address'}
+          inputPlaceholder={`Email Address`}
           shouldUseModal={true}
           submittedText="Thank you for signing up!"
         />
@@ -246,16 +250,16 @@ export const MainHeroSection: React.FC = () => {
   const { visitorType } = useGetVisitorType();
 
   const sellerImageSelector = [
-    'man-artist',
-    'women-clay',
-    'african-oldwoman',
-    'happ-seller',
+    `man-artist`,
+    `women-clay`,
+    `local-artisans`,
+    `happy-seller`,
   ];
   const buyerImageSelector = [
-    'shopping-receive-good',
-    'shop-like-a-local',
-    'crafts-shoes',
-    'spice-shop',
+    `shopping-received-happy`,
+    `shop-like-a-local`,
+    `crafts-shoes`,
+    `spice-shop`,
   ];
   const imagesSelector: string[] =
     visitorType === VisitorType.Seller
@@ -272,13 +276,13 @@ export const MainHeroSection: React.FC = () => {
     }, animationConfig.imageFadeDuration);
   };
 
-  const imageSrc = useGetAllImages();
+  const { home: imageSrc } = useGetPageImage();
 
   return (
     <div className={styles.wrapper}>
       <section className={styles.section}>
         <HeroBackground
-          image={imageSrc?.['home-page-ankara-background']?.url || ''}
+          image={imageSrc?.[`home-page-ankara-background`]?.src || ``}
         />
         <div className={styles.content}>
           <div className={styles.container}>
@@ -290,7 +294,7 @@ export const MainHeroSection: React.FC = () => {
                 <div className={`${styles.image}`}>
                   <img
                     src={
-                      imageSrc?.[imagesSelector[currentImageIndex]]?.url || ''
+                      imageSrc?.[imagesSelector[currentImageIndex]]?.src || ``
                     }
                     alt={`Hero image ${currentImageIndex + 1}`}
                     loading="lazy"
@@ -298,7 +302,7 @@ export const MainHeroSection: React.FC = () => {
                     style={{ opacity: isTransitioning ? 0 : 1 }}
                   />
                   <img
-                    src={imageSrc?.[imagesSelector[nextImageIndex]]?.url || ''}
+                    src={imageSrc?.[imagesSelector[nextImageIndex]]?.src || ``}
                     alt={`Hero image ${nextImageIndex + 1}`}
                     loading="lazy"
                     className="absolute top-0 left-0 w-full h-full max-h-[600px] object-cover transition-opacity duration-1000"

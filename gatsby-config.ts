@@ -61,6 +61,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/content/policies`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/images`,
+      },
+    },
     `gatsby-transformer-remark`,
     /**
      * TODO: this needs to come from envs

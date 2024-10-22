@@ -70,6 +70,7 @@ const FAQAccordion = () => {
   const toggleUserType = (type: VisitorType) => {
     setUserType(type);
   };
+
   const {
     faqQuery: { buyerFAQ, sellerFAQ },
   } = usePageContentQueries();

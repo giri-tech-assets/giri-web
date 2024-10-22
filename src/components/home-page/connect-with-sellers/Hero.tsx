@@ -1,11 +1,7 @@
 import React from 'react';
 import { SignupButton } from '@/components/common/SignupButton';
 
-// Extracted images object
-const images = {
-  backgroundHero:
-    'https://cdn.builder.io/api/v1/image/assets/TEMP/32c3b1674a6dd08f597de233dbf6053c607eafcc68089ce704873fbcb68ee6d7?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
-};
+
 
 interface HeroProps {
   title: string;
@@ -18,6 +14,10 @@ export const ConnectSellerHero: React.FC<HeroProps> = ({
   subtitle,
   ctaText,
 }) => {
+  const images = {
+    backgroundHero: '/img/african-connect.png',
+  };
+
   return (
     <header className="relative flex flex-col justify-center items-center px-8 py-8 w-full min-h-[480px] md:px-20 md:py-8">
       <img
