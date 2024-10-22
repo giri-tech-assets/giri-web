@@ -20,4 +20,10 @@ gallery_images:
   - image: /img/painter.png
     name: painter
     alt: african-painter
+  - image: /img/art-work-design.jpg
+    name: african-design
+    alt: African artwork
+  - image: /img/african-art.jpg
+    name: cow-art
+    alt: painted cows
 ---
