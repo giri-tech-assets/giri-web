@@ -7,4 +7,7 @@ gallery_images:
   - image: /img/home-page-ankara-background.png
     name: home-page-ankara-backgroung
     alt: Home page Ankara background
+  - image: /img/women-clay.jpg
+    name: women-clay
+    alt: Women making clay Giri Today
 ---
