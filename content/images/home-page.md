@@ -25,4 +25,7 @@ gallery_images:
   - image: /img/shop-like-a-local.jpg
     name: shop-like-a-local
     alt: Shop like a local on Giritoday
+  - image: /img/shopping-receive-good.jpg
+    name: shopping-received-happy
+    alt: Happy Shopper on GiriToday
 ---
