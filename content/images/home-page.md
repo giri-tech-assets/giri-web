@@ -16,4 +16,13 @@ gallery_images:
   - image: /img/artisans.jpg
     name: local-artisans
     alt: Local artisans
+  - image: /img/crafts-shoes.jpg
+    name: crafts-people
+    alt: Crafts
+  - image: /img/happ-seller.jpg
+    name: happy-seller
+    alt: Happy Seller on Giri Today
+  - image: /img/shop-like-a-local.jpg
+    name: shop-like-a-local
+    alt: Shop like a local on Giritoday
 ---
