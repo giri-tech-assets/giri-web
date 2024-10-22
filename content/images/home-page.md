@@ -10,4 +10,10 @@ gallery_images:
   - image: /img/women-clay.jpg
     name: women-clay
     alt: Women making clay Giri Today
+  - image: /img/african-connect.png
+    name: african-connect
+    alt: Connecting Africas Giri
+  - image: /img/artisans.jpg
+    name: local-artisans
+    alt: Local artisans
 ---
