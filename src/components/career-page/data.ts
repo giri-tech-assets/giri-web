@@ -155,3 +155,34 @@ As a master of design craft, you will infuse beauty and functionality into our d
     ]
   }
 };
+
+
+export const seniorAdministrativePartner: JobListing = {
+  title: "Senior Administrative Business Partner",
+  location: "Lagos, Nigeria",
+  type: "Full-Time (CONTRACT)",
+  salary: 'N6,000,000 - N7,000,000 (Annually)',
+  department: "UX & Design",
+  description: 'As Senior Administrative Business Partner on the Executive team, you will provide proactive calendar support, juggling multiple deliverables with competing deadlines and time sensitive requests. You will partner with executives to drive execution on team initiatives in support of business priorities, preparing documents, spreadsheets and slides. You will serve as a point person for your executives’ direct reports as well as the administrative business partners in your organization',
+  responsibilities: [
+    "Manage complex domestic and international travel on behalf of your executives, prepare expenses, and organize and assist with special events, team activities and meetings, including preparation of materials and managing logistics.",
+    "Partner with your executives to understand their priorities in order to effectively address meeting requests and manage complex calendars, stack rank meeting requests and redirect as needed, work independently and make decisions on behalf of your executives.",
+    "Act as a point person for your executives’ direct reports, building strong relationships across their teams to help drive your executives’ priorities and addressing complex or time sensitive requests as needed.",
+    "Draft documents, emails and presentations, take meeting minutes/actions, coordinate oral and written communications for executives, and execute specific tasks on short and long term projects.",
+    "Recognize where processes can be improved and make adjustments accordingly, take ownership of projects, and develop a deep understanding of GiriToday’s business."
+  ],
+  requirements: [
+    "5+ years’ experience supporting executives in a fast-paced, global environment within the technology industry with the ability to make good decisions in a fast-paced environment with changing priorities.",
+    "Comfort level working across multiple time zones in the U.S. and globally.",
+    "Proven attention to detail and high level of integrity and discretion in handling sensitive and confidential information; strong verbal and written communication skills along with excellent organizational skills.",
+    "Demonstrated ability to build effective cross-functional relationships, partner closely with leaders, and keep multiple teams and projects on track.",
+    "Plan and facilitate virtual, in person, and hybrid leadership summits and team-building events.",
+    "Experience with spreadsheets, slide preparation and meeting agendas, and proficiency with common administrative tools (i.e. Zoom, G-Suite, etc.)"
+  ],
+  desiredSkills: [
+    "Internal communications experience - drafting emails, program updates and invitations.",
+    "Bachelor’s or Associate's Degree desirable but not mandatory.",
+    "Experience planning and preparing for business operating cadences such as Quarterly Business Reviews or Long Range Planning meetings."
+  ]
+
+};

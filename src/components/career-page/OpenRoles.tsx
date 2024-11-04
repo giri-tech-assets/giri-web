@@ -13,10 +13,10 @@ import {
   productManagerJob,
   frontendEngineerJob,
   productDesignerJob,
+  seniorAdministrativePartner,
 } from './data';
 import { Linkify } from '../common/Linkify';
 import { Notification } from '../../components/common/Notification';
-import { sendSignupRequest } from '@/hooks/useWaitlistSignup';
 
 export interface JobListing {
   title: string;
@@ -33,6 +33,7 @@ export interface JobListing {
     description: string;
     items: string[];
   };
+  desiredSkills?: string[];
 }
 
 interface RoleItemProps {
@@ -43,6 +44,7 @@ interface RoleItemProps {
 }
 
 const openRoles: JobListing[] = [
+  seniorAdministrativePartner,
   backendEngineerJob,
   productManagerJob,
   frontendEngineerJob,
@@ -108,6 +110,8 @@ const RoleItem: React.FC<RoleItemProps> = ({
           })}
           {renderSection('In this role, you’ll', role.responsibilities)}
           {renderSection('Qualifications', role.requirements)}
+          {role.desiredSkills &&
+            renderSection('Desired', role.desiredSkills ?? [])}
           {renderFootNotes()}
           <button onClick={onApply} className={styles.applyButton}>
             Apply Now
