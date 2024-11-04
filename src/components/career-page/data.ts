@@ -162,7 +162,7 @@ export const seniorAdministrativePartner: JobListing = {
   location: "Lagos, Nigeria",
   type: "Full-Time (CONTRACT)",
   salary: 'N6,000,000 - N7,000,000 (Annually)',
-  department: "Executive Administration Department",
+  department: "Executive Administration",
   description: 'As Senior Administrative Business Partner on the Executive team, you will provide proactive calendar support, juggling multiple deliverables with competing deadlines and time sensitive requests. You will partner with executives to drive execution on team initiatives in support of business priorities, preparing documents, spreadsheets and slides. You will serve as a point person for your executives’ direct reports as well as the administrative business partners in your organization',
   responsibilities: [
     "Manage complex domestic and international travel on behalf of your executives, prepare expenses, and organize and assist with special events, team activities and meetings, including preparation of materials and managing logistics.",
