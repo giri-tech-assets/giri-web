@@ -10,7 +10,6 @@ export const useCountryLocation = () => {
       try {
         const countryResponse = await fetch(`/.netlify/functions/getCountry`);
         const countryData = await countryResponse.json();
-        console.log({ countryData });
         setCountry(countryData.country);
       } catch (err: any) {
         setError(err.message);

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { VisitorType, useGetVisitorType } from './useGetVisitorType';
-
+import { UserIntent } from '@/components/common/SignupButton';
 
 interface SignupResponse {
   success: boolean;
@@ -10,16 +10,20 @@ interface SignupResponse {
 }
 
 const SIGNUP_BUYER = gql`
-  mutation SignupBuyer($email: String!) {
-    insert_waitlist_buyer_signup_one(object: { email: $email }) {
-      email
-    }
-  }
-`;
-
-const SIGNUP_SELLER = gql`
-  mutation SignupSeller($email: String!) {
-    insert_waitlist_signup_seller_one(object: { email: $email }) {
+  mutation SignupBuyer(
+    $email: String!
+    $category: String
+    $description: String
+    $type: String
+  ) {
+    insert_waitlist_signup_one(
+      object: {
+        email: $email
+        category: $category
+        description: $description
+        type: $type
+      }
+    ) {
       email
     }
   }
@@ -48,11 +52,10 @@ export const useWaitlistSignup = ({
   const { visitorType } = useGetVisitorType();
 
   const [signupBuyer] = useMutation(SIGNUP_BUYER);
-  const [signupSeller] = useMutation(SIGNUP_SELLER);
   const isBuyer = visitorType === VisitorType.Buyer;
 
   const handleSignup = useCallback(
-    async (emailToSignup: string) => {
+    async (emailToSignup: string, userIntent: UserIntent) => {
       if (!emailToSignup) {
         setSignupStatus(SignupStatus.Idle);
         return;
@@ -60,9 +63,9 @@ export const useWaitlistSignup = ({
 
       try {
         if (isBuyer) {
-          await signupBuyer({ variables: { email: emailToSignup } });
-        } else if (visitorType === 'seller') {
-          await signupSeller({ variables: { email: emailToSignup } });
+          await signupBuyer({
+            variables: { email: emailToSignup, ...userIntent },
+          });
         }
         sendSignupRequest({
           email: emailToSignup,
@@ -79,7 +82,7 @@ export const useWaitlistSignup = ({
         setSignupStatus(SignupStatus.Error);
       }
     },
-    [isBuyer, visitorType, signupBuyer, signupSeller],
+    [isBuyer, visitorType, signupBuyer],
   );
 
   return {
@@ -95,9 +98,6 @@ export const useWaitlistSignup = ({
 export async function sendSignupRequest({
   email,
   type,
-  name,
-  coverLetter,
-  resume,
 }: {
   email: string;
   type: VisitorType;
