@@ -34,4 +34,7 @@ gallery_images:
   - image: /img/man-artist.jpg
     name: man-artist
     alt: Happy Man selling on Giri Today
+  - image: /img/man-artist.jpg
+    name: man-artist
+    alt: Happy Man selling on Giri Today
 ---
