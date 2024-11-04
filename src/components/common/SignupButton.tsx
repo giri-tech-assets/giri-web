@@ -94,7 +94,7 @@ const FormContent: React.FC<FormContentProps> = ({
             className="flex flex-col gap-4 text-blue-950"
           >
             <h3 className="text-lg font-semibold text-blue-950">
-              What brings you to Giri?
+              What brings you to GiriToday?
             </h3>
             <div className="flex flex-col gap-2">
               <label className="flex items-center gap-2">
@@ -108,7 +108,7 @@ const FormContent: React.FC<FormContentProps> = ({
                   }
                   className="text-blue-950"
                 />
-                <span className="text-blue-950">I'm looking to shop</span>
+                <span className="text-blue-950">Shop on Giri</span>
               </label>
               <label className="flex items-center gap-2">
                 <input
@@ -121,7 +121,7 @@ const FormContent: React.FC<FormContentProps> = ({
                   }
                   className="text-blue-950"
                 />
-                <span className="text-blue-950">I'm looking to sell</span>
+                <span className="text-blue-950">Sell on Giri Marketplace</span>
               </label>
             </div>
             <button
