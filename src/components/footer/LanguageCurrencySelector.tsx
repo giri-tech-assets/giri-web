@@ -10,8 +10,8 @@ const selectorConfig = {
     selectorContent: 'flex gap-1.5 items-start',
     selectorText: 'text-sm font-semibold tracking-normal',
   },
-  languages: ['English', 'Spanish', 'French', 'German'],
-  currencies: ['USD', 'GBP', 'EUR', 'CAD'],
+  languages: ['English'],
+  currencies: ['USD',],
 };
 
 export const LanguageCurrencySelector: React.FC = () => {
@@ -43,7 +43,7 @@ export const LanguageCurrencySelector: React.FC = () => {
             <div className={styles.selectorText}>{language}</div>
           </div>
         </button>
-        {isLanguageOpen && (
+        {/* {isLanguageOpen && (
           <div className="absolute top-full left-0 mt-1 w-full bg-white rounded-xl shadow-lg">
             {selectorConfig.languages.map((lang) => (
               <button
@@ -55,7 +55,7 @@ export const LanguageCurrencySelector: React.FC = () => {
               </button>
             ))}
           </div>
-        )}
+        )} */}
       </div>
       {/* <div className={`${styles.selectorWrapper} w-[74px] relative ml-2`}>
         <button

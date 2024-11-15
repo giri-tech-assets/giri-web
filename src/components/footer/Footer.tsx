@@ -1,5 +1,6 @@
 import React from 'react';
 import { PrivacyLinks } from './PrivacyLinks';
+import { LanguageCurrencySelector } from './LanguageCurrencySelector';
 import { Address } from './Address';
 
 export const Footer: React.FC = () => {
@@ -12,7 +13,7 @@ export const Footer: React.FC = () => {
           className="text-gray-700 leading-relaxed"
         />
       </>
-      {/* <LanguageCurrencySelector /> */}
+      <LanguageCurrencySelector />
     </footer>
   );
 };
