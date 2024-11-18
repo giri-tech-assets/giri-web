@@ -12,17 +12,24 @@ export const Footer: React.FC = () => {
           {...NigeriaAddress}
           className="text-gray-700 leading-relaxed"
         />
+        <Address
+          street="Suite 900,"
+          suite="440 Louisiana St"
+          city="Houston"
+          state="Texas"
+          zipCode="77002"
+          country="United States"
+        />
       </>
       <LanguageCurrencySelector />
     </footer>
   );
 };
 
-
 const NigeriaAddress = {
-  street: 'Suit 1',
-  suite: '126, Ogba Road',
-  city: 'Agege',
-  state: 'Lagos',
-  country: 'Nigeria',
-}
+  street: `Suit 1,`,
+  suite: `126 Ogba Road`,
+  city: `Agege`,
+  state: `Lagos`,
+  country: `Nigeria`,
+};
