@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { SignupButton } from './common/SignupButton';
 
-const LAUNCH_DATE = new Date(`February 10, 2025 00:00:00`).getTime();
+const LAUNCH_DATE = new Date(`February 10, 2025 00:10:00`).getTime();
 
 type TimeLeft = {
   days: number;
