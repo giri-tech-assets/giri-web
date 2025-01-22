@@ -1,11 +1,11 @@
 ---
 title: Home Page
-date: 2024-10-21T20:31:00.000Z
+date: 2024-10-21T20:39:00.000Z
 description: Pictures for home page
 page: home
 gallery_images:
   - image: /img/home-page-ankara-background.png
-    name: home-page-ankara-background
+    name: home-page-ankara-backgroung
     alt: Home page Ankara background
   - image: /img/women-clay.jpg
     name: women-clay
@@ -17,8 +17,8 @@ gallery_images:
     name: local-artisans
     alt: Local artisans
   - image: /img/crafts-shoes.jpg
-    name: crafts-shoes
-    alt: Craft Shoes
+    name: crafts-people
+    alt: Crafts
   - image: /img/happy-seller.jpg
     name: happy-seller
     alt: Happy Seller on Giri Today
@@ -28,13 +28,4 @@ gallery_images:
   - image: /img/shopping-receive-good.jpg
     name: shopping-received-happy
     alt: Happy Shopper on GiriToday
-  - image: /img/spice-shop.png
-    name: spice-shop
-    alt: Happy Shop Seller on GiriToday
-  - image: /img/man-artist.jpg
-    name: man-artist
-    alt: Happy Man selling on Giri Today
-  - image: /img/man-artist.jpg
-    name: man-artist
-    alt: Happy Man selling on Giri Today
 ---
