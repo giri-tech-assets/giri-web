@@ -23,7 +23,7 @@ gallery_images:
   - image: /img/art-work-design.jpg
     name: african-design
     alt: African artwork
-  - image: /img/african-art.jpg
+  - image: /img/cow-art.jpg
     name: cow-art
     alt: painted cows
   - image: /img/gift-couple.jpg
