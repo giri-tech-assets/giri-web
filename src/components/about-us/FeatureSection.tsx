@@ -1,7 +1,6 @@
 import { useGetAllImages } from '@/hooks/useGetAllImages';
 import React from 'react';
 import { SignupButton } from '../common/SignupButton';
-import { useGetPageImage } from '@/hooks/pages-queries/useGetPageImage';
 
 interface FeatureProps {
   title: string;
@@ -22,7 +21,7 @@ const Feature: React.FC<FeatureProps> = ({
 }) => (
   <div
     className={`flex w-full ${
-      reverse ? 'flex-row-reverse' : 'flex-row'
+      reverse ? `flex-row-reverse` : `flex-row`
     } gap-8 mb-20 max-md:flex-col`}
   >
     <div className="w-1/2 max-md:w-full">
@@ -30,7 +29,7 @@ const Feature: React.FC<FeatureProps> = ({
         <img
           src={imageSrc}
           alt={imageAlt}
-          loading={'lazy'}
+          loading={`lazy`}
           className="rounded-3xl"
         />
       </div>
@@ -44,32 +43,31 @@ const Feature: React.FC<FeatureProps> = ({
 );
 
 export const FeatureSection: React.FC = () => {
-  const { about: aboutUsImages } = useGetPageImage();
+  const featureImages = useGetAllImages();
 
-  const forSellers = aboutUsImages?.['family-gift']?.src ?? '';
-  const forBuyers = aboutUsImages?.['gift-couple']?.src ?? '';
+  const forSellers = featureImages?.[`family-gift`]?.url ?? ``;
+  const forBuyers = featureImages?.[`gift-couple`]?.url ?? ``;
+
+  console.log(forSellers, forBuyers);
 
   const featureContent = {
     seller: {
-      title:
-        'For Sellers: Showcase Your Creativity – Reach Buyers Around the Globe!',
-      description:
-        'Expand your reach and grow your business by showcasing your products to a global audience. Giri offers easy-to-use tools, marketing support, and a community that values creativity and craftsmanship.',
-      buttonText: 'Start selling now',
+      title: `For Sellers: Showcase Your Creativity – Reach Buyers Around the Globe!`,
+      description: `Expand your reach and grow your business by showcasing your products to a global audience. Giri offers easy-to-use tools, marketing support, and a community that values creativity and craftsmanship.`,
+      buttonText: `Start selling now`,
       imageSrc: forSellers,
-      imageAlt: 'African seller showcase',
+      imageAlt: `African seller showcase`,
     },
     buyer: {
-      title:
-        "For Buyers: Shop Authentic, From Africa's Markets to Your Doorstep",
-      description:
-        'Explore a marketplace filled with unique products that tell stories from different cultures and regions. From handcrafted goods to local delicacies, every item is a discovery waiting to be made.',
-      buttonText: 'Start shopping now',
+      title: `For Buyers: Shop Authentic, From Africa's Markets to Your Doorstep`,
+      description: `Explore a marketplace filled with unique products that tell stories from different cultures and regions. From handcrafted goods to local delicacies, every item is a discovery waiting to be made.`,
+      buttonText: `Start shopping now`,
       imageSrc: forBuyers,
-      imageAlt: 'African marketplace showcase',
+      imageAlt: `African marketplace showcase`,
     },
   };
-
+  const images = useGetAllImages();
+  console.log(images);
   return (
     <section className="mt-44 w-full max-w-[1281px] mx-auto px-4 max-md:mt-10">
       <div className="flex flex-col">

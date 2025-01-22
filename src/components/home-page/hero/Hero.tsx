@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import useGetVisitorType, { VisitorType } from '@/hooks/useGetVisitorType';
 import { SignupButton } from '@/components/common/SignupButton';
-import { useGetPageImage } from '@/hooks/pages-queries/useGetPageImage';
+import { useGetAllImages } from '@/hooks/useGetAllImages';
 
 interface HeroConfigStyles {
   wrapper: string;
@@ -275,13 +274,13 @@ export const MainHeroSection: React.FC = () => {
     }, animationConfig.imageFadeDuration);
   };
 
-  const { home: imageSrc } = useGetPageImage();
+  const images = useGetAllImages();
 
   return (
     <div className={styles.wrapper}>
       <section className={styles.section}>
         <HeroBackground
-          image={imageSrc?.[`home-page-ankara-background`]?.src || ``}
+          image={images?.[`home-page-ankara-background`]?.url || ``}
         />
         <div className={styles.content}>
           <div className={styles.container}>
@@ -292,16 +291,14 @@ export const MainHeroSection: React.FC = () => {
               <div className={styles.imageWrapper}>
                 <div className={`${styles.image}`}>
                   <img
-                    src={
-                      imageSrc?.[imagesSelector[currentImageIndex]]?.src || ``
-                    }
+                    src={images?.[imagesSelector[currentImageIndex]]?.url || ``}
                     alt={`Hero image ${currentImageIndex + 1}`}
                     loading="lazy"
                     className="absolute top-0 left-0 w-full h-full max-h-[600px] object-cover transition-opacity duration-1000"
                     style={{ opacity: isTransitioning ? 0 : 1 }}
                   />
                   <img
-                    src={imageSrc?.[imagesSelector[nextImageIndex]]?.src || ``}
+                    src={images?.[imagesSelector[nextImageIndex]]?.url || ``}
                     alt={`Hero image ${nextImageIndex + 1}`}
                     loading="lazy"
                     className="absolute top-0 left-0 w-full h-full max-h-[600px] object-cover transition-opacity duration-1000"

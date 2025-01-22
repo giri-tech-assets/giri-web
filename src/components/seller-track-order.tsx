@@ -1,39 +1,35 @@
 import React from 'react';
 import { useGetAllImages } from '@/hooks/useGetAllImages';
-import { ArrowRight } from 'lucide-react';
 import { SignupButton } from './common/SignupButton';
 import { ImagePopup } from './common/ImagePopUp';
 
 export const TrackYourOrder: React.FC = () => {
   const allImages = useGetAllImages();
-  const dashboard = allImages?.['track-your-order']?.url || '';
+  const dashboard = allImages?.[`track-your-order`]?.url || ``;
 
   const content = {
-    title: 'Sell Globally with Ease',
+    title: `Sell Globally with Ease`,
     orderStatus: {
-      title: 'Track Your Sales Effortlessly',
-      description:
-        'Expand your reach to a global audience with our platform. Using AI, we match you with buyers worldwide, and our partnerships with multiple shipping providers ensure fast delivery. Easily track your orders through every stage:',
+      title: `Track Your Sales Effortlessly`,
+      description: `Expand your reach to a global audience with our platform. Using AI, we match you with buyers worldwide, and our partnerships with multiple shipping providers ensure fast delivery. Easily track your orders through every stage:`,
       stages: [
-        'Integrate',
-        'Processing',
-        'Shipped',
-        'Out for Delivery',
-        'Delivered',
+        `Integrate`,
+        `Processing`,
+        `Shipped`,
+        `Out for Delivery`,
+        `Delivered`,
       ],
-      additionalInfo:
-        'Talk to us today to start selling your products on Giri and reach a global audience.',
+      additionalInfo: `Talk to us today to start selling your products on Giri and reach a global audience.`,
     },
     button: {
-      text: 'Start Selling Now',
-      className:
-        'bg-yellow-400 hover:bg-blue-950 hover:text-white text-blue-950 font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300',
-      buttonIcon: 'ml-2',
+      text: `Start Selling Now`,
+      className: `bg-yellow-400 hover:bg-blue-950 hover:text-white text-blue-950 font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300`,
+      buttonIcon: `ml-2`,
     },
     image: {
       src: dashboard,
-      alt: 'Order Tracking Illustration',
-      className: 'w-full h-auto rounded-lg shadow-lg',
+      alt: `Order Tracking Illustration`,
+      className: `w-full h-auto rounded-lg shadow-lg`,
     },
   };
 

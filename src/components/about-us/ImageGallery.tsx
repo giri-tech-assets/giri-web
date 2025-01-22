@@ -1,4 +1,4 @@
-import { useGetPageImage } from '@/hooks/pages-queries/useGetPageImage';
+import { useGetAllImages } from '@/hooks/useGetAllImages';
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
@@ -70,20 +70,20 @@ const ControlButton = styled.button`
 `;
 
 export const ImageGallery: React.FC = () => {
-  const { about: aboutPageImages } = useGetPageImage();
+  const aboutPageImages = useGetAllImages();
   const [position, setPosition] = useState(0);
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const scrollContentRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    aboutPageImages?.['african-potter']?.src,
-    aboutPageImages?.['african-woman-smiling']?.src,
-    aboutPageImages?.['cow-art']?.src,
-    aboutPageImages?.['african-seller']?.src,
-    aboutPageImages?.['man-holding-clay']?.src,
-    aboutPageImages?.['painter']?.src,
-    aboutPageImages?.['african-design']?.src,
+    aboutPageImages?.[`african-potter`]?.url,
+    aboutPageImages?.[`african-art`]?.url,
+    aboutPageImages?.grocery?.url,
+    aboutPageImages?.[`african-woman-smiling`]?.url,
+    aboutPageImages?.[`man-holding-clay-pot`]?.url,
+    aboutPageImages?.painter?.url,
+    aboutPageImages?.fashion?.url,
   ];
 
   // Calculate limits
