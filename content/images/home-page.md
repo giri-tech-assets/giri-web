@@ -19,7 +19,7 @@ gallery_images:
   - image: /img/crafts-shoes.jpg
     name: crafts-people
     alt: Crafts
-  - image: /img/happ-seller.jpg
+  - image: /img/happy-seller.jpg
     name: happy-seller
     alt: Happy Seller on Giri Today
   - image: /img/shop-like-a-local.jpg
