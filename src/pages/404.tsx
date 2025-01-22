@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 
 const NotFoundPage = () => {
@@ -9,8 +9,8 @@ const NotFoundPage = () => {
       setCountdown((prevCount) => {
         if (prevCount <= 1) {
           clearInterval(timer);
-          if (typeof window !== 'undefined') {
-            window.location.href = '/';
+          if (typeof window !== `undefined`) {
+            window.location.href = `/`;
           }
           return 0;
         }
@@ -29,11 +29,12 @@ const NotFoundPage = () => {
           Oops! Page Not Found
         </h2>
         <p className="text-gray-600 mb-6">
-          The page you're looking for doesn't exist or has been moved.
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <p className="text-gray-600 mb-6">
-          Redirecting to home page in{' '}
-          <span className="font-bold text-[#FFA500]">{countdown}</span>{' '}
+          Redirecting to home page in{` `}
+          <span className="font-bold text-[#FFA500]">{countdown}</span>
+          {` `}
           seconds...
         </p>
         <Link

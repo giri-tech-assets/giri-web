@@ -21,28 +21,28 @@ interface AnimatedEmailSignupProps {
   inputPlaceholder?: string;
   submittedText?: string;
   shouldUseModal?: boolean;
-  variant?: 'primary' | 'secondary' | 'accent';
+  variant?: 'primary' | 'secondary' | 'accent' | 'countdown';
 }
 
 const categories: Category[] = [
-  { id: 'electronics', label: 'Electronics' },
-  { id: 'fashion', label: 'Fashion' },
-  { id: 'home_garden', label: 'Home & Garden' },
-  { id: 'sports_outdoors', label: 'Sports & Outdoors' },
-  { id: 'toys_games', label: 'Toys & Games' },
-  { id: 'books_media', label: 'Books & Media' },
-  { id: 'health_beauty', label: 'Health & Beauty' },
-  { id: 'automotive', label: 'Automotive' },
-  { id: 'jewelry_watches', label: 'Jewelry & Watches' },
-  { id: 'pet_supplies', label: 'Pet Supplies' },
-  { id: 'art_collectibles', label: 'Art & Collectibles' },
-  { id: 'other', label: 'Other' },
+  { id: `electronics`, label: `Electronics` },
+  { id: `fashion`, label: `Fashion` },
+  { id: `home_garden`, label: `Home & Garden` },
+  { id: `sports_outdoors`, label: `Sports & Outdoors` },
+  { id: `toys_games`, label: `Toys & Games` },
+  { id: `books_media`, label: `Books & Media` },
+  { id: `health_beauty`, label: `Health & Beauty` },
+  { id: `automotive`, label: `Automotive` },
+  { id: `jewelry_watches`, label: `Jewelry & Watches` },
+  { id: `pet_supplies`, label: `Pet Supplies` },
+  { id: `art_collectibles`, label: `Art & Collectibles` },
+  { id: `other`, label: `Other` },
 ];
 
 const FormStep = {
-  INTENT: 'INTENT',
-  DETAILS: 'DETAILS',
-  EMAIL: 'EMAIL',
+  INTENT: `INTENT`,
+  DETAILS: `DETAILS`,
+  EMAIL: `EMAIL`,
 };
 
 interface FormContentProps {
@@ -102,9 +102,9 @@ const FormContent: React.FC<FormContentProps> = ({
                   type="radio"
                   name="intent"
                   value="shop"
-                  checked={userIntent.type === 'shop'}
-                  onChange={(e) =>
-                    setUserIntent({ ...userIntent, type: 'shop' })
+                  checked={userIntent.type === `shop`}
+                  onChange={() =>
+                    setUserIntent({ ...userIntent, type: `shop` })
                   }
                   className="text-blue-950"
                 />
@@ -115,9 +115,10 @@ const FormContent: React.FC<FormContentProps> = ({
                   type="radio"
                   name="intent"
                   value="sell"
-                  checked={userIntent.type === 'sell'}
-                  onChange={(e) =>
-                    setUserIntent({ ...userIntent, type: 'sell' })
+                  checked={userIntent.type === `sell`}
+                  // eslint-disable-next-line react-hooks/exhaustive-deps
+                  onChange={() =>
+                    setUserIntent({ ...userIntent, type: `sell` })
                   }
                   className="text-blue-950"
                 />
@@ -142,8 +143,8 @@ const FormContent: React.FC<FormContentProps> = ({
             className="flex flex-col gap-4"
           >
             <h3 className="text-lg font-semibold text-blue-950">
-              What are you interested in{' '}
-              {userIntent.type === 'shop' ? 'shopping for' : 'selling'}?
+              What are you interested in{` `}
+              {userIntent.type === `shop` ? `shopping for` : `selling`}?
             </h3>
             <select
               value={userIntent.category}
@@ -229,9 +230,9 @@ const FormContent: React.FC<FormContentProps> = ({
 
 export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
   buttonText,
-  inputPlaceholder = 'Email Address',
+  inputPlaceholder = `Email Address`,
   shouldUseModal = false,
-  variant = 'accent',
+  variant = `accent`,
 }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { handleSignup, setEmail, email, signupStatus, setSignupStatus } =
@@ -240,8 +241,8 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
   const [currentStep, setCurrentStep] = useState(FormStep.INTENT);
   const [userIntent, setUserIntent] = useState<UserIntent>({
     type: null,
-    category: '',
-    description: '',
+    category: ``,
+    description: ``,
   });
 
   const handleButtonClick = useCallback(() => {
@@ -255,11 +256,11 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
         await handleSignup(email, userIntent);
         setIsSubmitted(true);
         setIsFormVisible(false);
-        setEmail('');
-        setUserIntent({ type: null, category: '', description: '' });
+        setEmail(``);
+        setUserIntent({ type: null, category: ``, description: `` });
         setCurrentStep(FormStep.INTENT);
       } catch (error) {
-        console.error('Signup error:', error);
+        console.error(`Signup error:`, error);
         setSignupStatus(SignupStatus.Error);
       }
     },
@@ -268,24 +269,30 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
 
   const handleClose = useCallback(() => {
     setIsFormVisible(false);
-    setUserIntent({ type: null, category: '', description: '' });
+    setUserIntent({ type: null, category: ``, description: `` });
     setCurrentStep(FormStep.INTENT);
   }, []);
 
   const messagesMap = {
-    [SignupStatus.Error]: 'An error occurred. Please try again.',
-    [SignupStatus.AlreadyExists]:
-      "We already have your email. We'll keep in touch!",
-    [SignupStatus.Success]: "Thank you for signing up! We'll keep you updated!",
+    [SignupStatus.Error]: `An error occurred. Please try again.`,
+    [SignupStatus.AlreadyExists]: `We already have your email. We'll keep in touch!`,
+    [SignupStatus.Success]: `Thank you for signing up! We'll keep you updated!`,
   };
 
   const message = messagesMap[signupStatus as keyof typeof messagesMap];
 
-  const textColor = variant === 'primary' ? 'text-white' : 'text-gray-900';
+  const textColor =
+    variant === `countdown`
+      ? `text-[#F3BC33]`
+      : variant === `primary`
+      ? `text-white`
+      : `text-gray-900`;
+
   const color: Record<ButtonProps['variant'], string> = {
-    primary: 'bg-blue-950',
-    secondary: 'bg-gray-900',
-    accent: 'bg-yellow-400',
+    primary: `bg-blue-950`,
+    secondary: `bg-gray-900`,
+    accent: `bg-yellow-400`,
+    countdown: `text-[#F3BC33] border border-white text-[15px] rounded-3xl py-2 px-5 lg:py-2 lg:px-3`,
   };
 
   const baseButtonClasses = `${color[variant]} ${textColor}`.trim();
@@ -305,7 +312,9 @@ export const SignupButton: React.FC<AnimatedEmailSignupProps> = ({
               transition={{ duration: 0.3 }}
             >
               {buttonText}
-              <ArrowRight className="ml-4" size={20} />
+              {variant !== `countdown` && (
+                <ArrowRight className="ml-4" size={20} />
+              )}
             </motion.button>
           </div>
         )}

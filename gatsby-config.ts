@@ -1,72 +1,80 @@
 import type { GatsbyConfig } from 'gatsby';
 import path from 'path';
 
-require("dotenv").config({
+require(`dotenv`).config({
   path: `.env`,
-})
+});
+
+const logoUrl = `https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e`;
 
 const config: GatsbyConfig = {
+  siteMetadata: {
+    title: `GiriToday`,
+    titleTemplate: `%s | GiriToday`,
+    description: `Shop, Sell, Celebrate Africa`,
+    siteUrl: `https://giritoday.com`,
+    defaultImage: `/img/shop-like-a-local.jpg`,
+    social: {
+      twitter: `@giritoday`,
+      facebook: `giritoday`,
+    },
+    image: logoUrl,
+    organization: {
+      name: `GiriToday`,
+      url: `https://giritoday.com`,
+      logo: logoUrl,
+    },
+  },
   plugins: [
-    'gatsby-plugin-postcss',
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-     {
-    resolve: "gatsby-plugin-google-tagmanager",
-    options: {
-      id: "GTM-KGW3FPFK",
-
-      // Include GTM in development.
-      //
-      // Defaults to false meaning GTM will only be loaded in production.
-      includeInDevelopment: false,
-
-      // datalayer to be set before GTM is loaded
-      // should be an object or a function that is executed in the browser
-      //
-      // Defaults to null
-      defaultDataLayer: { platform: "gatsby" },
-
-      // Name of the event that is triggered
-      // on every Gatsby route change.
-      //
-      // Defaults to gatsby-route-change
-      routeChangeEventName: "info-site-route-change",
-      // Defaults to false
-      enableWebVitalsTracking: true,
-    },
-  },
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-source-datocms",
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER,
+
+        // Include GTM in development.
+        //
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        defaultDataLayer: { platform: `gatsby` },
+
+        // Name of the event that is triggered
+        // on every Gatsby route change.
+        //
+        // Defaults to gatsby-route-change
+        routeChangeEventName: `info-site-route-change`,
+        // Defaults to false
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATOCMS_API_TOKEN,
-        environment: 'main',
+        environment: `main`,
         previewMode: false,
       },
     },
     `gatsby-plugin-decap-cms`,
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-react-svg`,
       options: {
-        name: "Giri- Africa's Global Marketplace",
-        short_name: "GiriToday",
-        start_url: "/",
-        // These can be imported once ESM support lands
-        background_color: "#ffffff",
-        theme_color: "#db3000",
-        icon: "src/favicon.png",
+        rule: {
+          include: path.resolve(__dirname, `src/assets/images`),
+        },
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: path.resolve(__dirname, 'src/assets/images')
-        }
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-tidio-chat',
+      resolve: `gatsby-plugin-tidio-chat`,
       options: {
         tidioKey: process.env.TIDIO_API_TOKEN,
         enableDuringDevelop: true, // Optional. Disables Tidio chat widget when running Gatsby dev server. Defaults to true.
@@ -98,17 +106,16 @@ const config: GatsbyConfig = {
      * TODO: this needs to come from envs
      */
     {
-      resolve: 'gatsby-plugin-apollo',
+      resolve: `gatsby-plugin-apollo`,
       options: {
-        typeName: 'HASURA',
-        fieldName: 'hasura',
-        uri: 'https://darling-sponge-48.hasura.app/v1/graphql',
+        typeName: `HASURA`,
+        fieldName: `hasura`,
+        uri: process.env.HASURA_ENDPOINT_URL,
         headers: {
           'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET,
         },
       },
     },
-
 
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -124,7 +131,7 @@ const config: GatsbyConfig = {
           // Setting this parameter is also optional
           respectDNT: true,
           // Avoids sending pageview hits from custom paths
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
+          exclude: [`/preview/**`, `/do-not-track/me/too/`],
         },
       },
     },
@@ -133,8 +140,6 @@ const config: GatsbyConfig = {
   flags: {
     // DEV_SSR: true
   },
-
 };
 
 export default config;
-

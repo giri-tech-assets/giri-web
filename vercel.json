@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {"source": "admin/", "destination": "https://staging-admin-app.vercel.com.app/"},
+      {"source": "admin/:match*", "destination": "https://staging-admin-app.vercel.com.app/:match*"},
+      {"source": "/", "destination": "https://web-git-feature-live-countdown-giritoday.vercel.app/"},
+      {"source": "/:match*", "destination": "https://web-git-feature-live-countdown-giritoday.vercel.app/:match*"}
+    ]
+  }

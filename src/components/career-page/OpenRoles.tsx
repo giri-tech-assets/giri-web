@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import {
   Search,
@@ -8,13 +9,7 @@ import {
   Layers,
 } from 'lucide-react';
 import ApplyForRoleForm from './ApplyForm';
-import {
-  backendEngineerJob,
-  productManagerJob,
-  frontendEngineerJob,
-  productDesignerJob,
-  seniorAdministrativePartner,
-} from './data';
+import { backendEngineerJob, socialMediaManager } from './data';
 import { Linkify } from '../common/Linkify';
 import { Notification } from '../../components/common/Notification';
 
@@ -40,39 +35,25 @@ interface RoleItemProps {
   role: JobListing;
   isOpen: boolean;
   onToggle: () => void;
-  onApply: () => void;
 }
 
-const openRoles: JobListing[] = [
-  seniorAdministrativePartner,
-  backendEngineerJob,
-  productManagerJob,
-  frontendEngineerJob,
-  productDesignerJob,
-];
+const openRoles: JobListing[] = [backendEngineerJob, socialMediaManager];
 
 const roleItemConfig = {
   styles: {
-    container: 'border rounded-lg p-4 hover:shadow-md transition-shadow',
-    header: 'flex justify-between items-start',
-    title: 'text-xl font-semibold mb-2',
-    metaInfo: 'flex flex-wrap gap-4 text-sm text-gray-600',
-    toggleButton:
-      'bg-[#020089] text-white px-4 py-2 rounded hover:bg-[#0300a9] transition-colors flex items-center min-w-[100px]',
-    details: 'mt-4 pt-4 border-t',
-    sectionTitle: 'font-semibold mb-2 text-xl',
-    list: 'list-disc pl-5',
-    applyButton:
-      'bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors',
+    container: `border rounded-lg p-4 hover:shadow-md transition-shadow`,
+    header: `flex justify-between items-start`,
+    title: `text-xl font-semibold mb-2`,
+    metaInfo: `flex flex-wrap gap-4 text-sm text-gray-600`,
+    toggleButton: `bg-[#020089] text-white px-4 py-2 rounded hover:bg-[#0300a9] transition-colors flex items-center min-w-[100px]`,
+    details: `mt-4 pt-4 border-t`,
+    sectionTitle: `font-semibold mb-2 text-xl`,
+    list: `list-disc pl-5`,
+    applyButton: `bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors`,
   },
 };
 
-const RoleItem: React.FC<RoleItemProps> = ({
-  role,
-  isOpen,
-  onToggle,
-  onApply,
-}) => {
+const RoleItem: React.FC<RoleItemProps> = ({ role, isOpen, onToggle }) => {
   const { styles } = roleItemConfig;
 
   return (
@@ -93,7 +74,7 @@ const RoleItem: React.FC<RoleItemProps> = ({
           </div>
         </div>
         <button onClick={onToggle} className={styles.toggleButton}>
-          {isOpen ? 'Close' : 'View Details'}
+          {isOpen ? `Close` : `View Details`}
           {isOpen ? (
             <ChevronUp className="ml-2" size={16} />
           ) : (
@@ -108,14 +89,15 @@ const RoleItem: React.FC<RoleItemProps> = ({
             aboutTheRoleBlob: role.description,
             teamLike: role.teamLike,
           })}
-          {renderSection('In this role, you’ll', role.responsibilities)}
-          {renderSection('Qualifications', role.requirements)}
+          {renderSection(`In this role, you’ll`, role.responsibilities)}
+          {renderSection(`Qualifications`, role.requirements)}
           {role.desiredSkills &&
-            renderSection('Desired', role.desiredSkills ?? [])}
+            renderSection(`Desired`, role.desiredSkills ?? [])}
           {renderFootNotes()}
-          <button onClick={onApply} className={styles.applyButton}>
+          {/* TODO: re-introduce */}
+          {/* <button onClick={onApply} className={styles.applyButton}>
             Apply Now
-          </button>
+          </button> */}
         </div>
       )}
     </div>
@@ -163,7 +145,7 @@ function renderAboutGiri({ salary, aboutTheRoleBlob, teamLike }: AboutSection) {
       {teamLike && (
         <>
           <h2 className="text-xl font-semibold mb-2 mt-5">
-            What's this team like at Giri
+            What&apos;s this team like at Giri
           </h2>
           <p>
             {teamLike.description} <br />
@@ -204,9 +186,7 @@ function renderFootNotes() {
       </p>
       <div className=" mt-5">
         <Linkify
-          text={
-            'To apply, upload your resume to www.giritoday.com/careers or send your resume to jobs@giritoday.com or Click Apply Below. We look forward to meeting you!'
-          }
+          text={`To apply, upload your resume to www.giritoday.com/careers or send your resume to jobs@giritoday.com or Click Apply Below. We look forward to meeting you!`}
           linkClassName="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors duration-300"
         />
       </div>
@@ -216,23 +196,23 @@ function renderFootNotes() {
 
 const openRolesConfig = {
   styles: {
-    container: 'max-w-4xl mx-auto p-6',
-    title: 'text-3xl font-bold mb-6 text-center',
-    filters: 'mb-6 flex flex-col sm:flex-row gap-4',
-    searchContainer: 'relative flex-grow',
-    searchInput: 'w-full p-2 pl-10 border rounded-md',
-    searchIcon: 'absolute left-3 top-2.5 text-gray-400',
-    filterSelect: 'p-2 border rounded-md',
-    rolesList: 'space-y-4',
-    noRoles: 'text-center text-gray-500',
+    container: `max-w-4xl mx-auto p-6`,
+    title: `text-3xl font-bold mb-6 text-center`,
+    filters: `mb-6 flex flex-col sm:flex-row gap-4`,
+    searchContainer: `relative flex-grow`,
+    searchInput: `w-full p-2 pl-10 border rounded-md`,
+    searchIcon: `absolute left-3 top-2.5 text-gray-400`,
+    filterSelect: `p-2 border rounded-md`,
+    rolesList: `space-y-4`,
+    noRoles: `text-center text-gray-500`,
   },
 };
 
 export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
   roles = openRoles,
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('All');
+  const [searchTerm, setSearchTerm] = useState(``);
+  const [filter, setFilter] = useState(`All`);
   const [openRoleId, setOpenRoleId] = useState<string | null>(null);
   const [applyingForRole, setApplyingForRole] = useState<JobListing | null>(
     null,
@@ -244,11 +224,11 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
   const filteredRoles = roles?.filter(
     (role) =>
       role.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (filter === 'All' || role.department === filter),
+      (filter === `All` || role.department === filter),
   );
 
   const departments = [
-    'All',
+    `All`,
     ...new Set(roles?.map((role) => role.department)),
   ];
 
@@ -264,14 +244,14 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
     setApplyingForRole(null);
   };
 
-  const handleSubmitApplication = async (formData: any) => {
+  const handleSubmitApplication = async () => {
     try {
       setApplyingForRole(null);
       setSubmitSuccess(true);
       setOpenRoleId(null);
       setTimeout(() => setSubmitSuccess(false), 100000);
     } catch (error) {
-      console.error('Error sending application:', error);
+      console.error(`Error sending application:`, error);
       // Handle error (e.g., show error message to user)
     }
   };
@@ -282,12 +262,10 @@ export const OpenRolesComponent: React.FC<{ roles?: JobListing[] }> = ({
 
       {submitSuccess && (
         <Notification
-          key={'success'}
-          type={'success'}
+          key={`success`}
+          type={`success`}
           duration={60000}
-          message={
-            'Your application has been successfully sent to jobs@giritoday.com.'
-          }
+          message={`Your application has been successfully sent to jobs@giritoday.com.`}
           onClose={() => {
             setOpenRoleId(null);
           }}

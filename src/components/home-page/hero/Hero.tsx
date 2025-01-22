@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useGetAllImages } from '../../../hooks/useGetAllImages';
 
 import useGetVisitorType, { VisitorType } from '@/hooks/useGetVisitorType';
 import { SignupButton } from '@/components/common/SignupButton';
@@ -69,7 +68,7 @@ const heroConfig: HeroConfig = {
   styles: {
     wrapper: `relative w-screen left-1/2 right-1/2 -mx-[50vw]`,
     section: `relative w-full overflow-hidden bg-[#020089] pb-20 pt-4 md:pt-8 px-5 min-h-[50vh] flex items-center`,
-    content: `relative z-10 w-full flex items-center`,
+    content: `relative  w-full flex items-center`,
     container: `container mx-auto px-4 `,
     flexWrapper: `flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-stretch w-full `,
     halfWidth: `w-full lg:w-1/2 flex-shrink-0`,
