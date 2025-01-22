@@ -17,7 +17,7 @@ gallery_images:
     name: local-artisans
     alt: Local artisans
   - image: /img/crafts-shoes.jpg
-    name: crafts-people
+    name: crafts-shoes
     alt: Crafts
   - image: /img/happy-seller.jpg
     name: happy-seller
@@ -28,4 +28,10 @@ gallery_images:
   - image: /img/shopping-receive-good.jpg
     name: shopping-received-happy
     alt: Happy Shopper on GiriToday
+  - name: spice-shop
+    alt: Happy Shop Seller on GiriToday
+    image: /img/spice-shop.png
+  - image: /img/man-artist.jpg
+    name: man-artist
+    alt: Happy Man selling on Giri Today
 ---
