@@ -68,7 +68,7 @@ export const Newsletter: React.FC = () => {
           message={message}
           onClose={() => {
             setShowToast(false);
-            setUserIntent({ type: `sell`, category: ``, description: `` }); 
+            setUserIntent({ type: null, category: ``, description: `` });
           }}
         />
       )}

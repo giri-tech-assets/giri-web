@@ -6,8 +6,9 @@ interface AddressProps {
   city: string;
   state: string;
   zipCode?: string;
-  className?: string;
   country?: string;
+  phoneNumber?: string;
+  className?: string;
 }
 
 export const Address: React.FC<AddressProps> = ({
@@ -17,6 +18,7 @@ export const Address: React.FC<AddressProps> = ({
   state,
   zipCode,
   country = ``,
+  phoneNumber,
   className = ``,
 }) => {
   return (
@@ -28,6 +30,11 @@ export const Address: React.FC<AddressProps> = ({
         <br />
         {country}
       </div>
+      {phoneNumber && (
+        <a href={`tel:${phoneNumber}`} className="text-gray-500 mt-1 block">
+          {phoneNumber}
+        </a>
+      )}
     </address>
   );
 };
