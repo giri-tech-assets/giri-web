@@ -6,13 +6,19 @@ interface AnimatedSvgProps {
   className?: string;
 }
 
-const AnimatedSvg: React.FC<AnimatedSvgProps> = ({ SvgComponent, size = 50, className = '' }) => {
+const AnimatedSvg: React.FC<AnimatedSvgProps> = ({
+  SvgComponent,
+  size = 50,
+  className = ``,
+}) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     if (svgRef.current) {
       // Reset animations
-      const animateElements = svgRef.current.querySelectorAll('animate, animateTransform, animateMotion');
+      const animateElements = svgRef.current.querySelectorAll(
+        `animate, animateTransform, animateMotion`,
+      );
       animateElements.forEach((anim: any) => {
         anim.beginElement();
       });

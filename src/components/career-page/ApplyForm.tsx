@@ -19,32 +19,29 @@ interface FormData {
 
 const formConfig = {
   styles: {
-    overlay:
-      'fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4',
-    modal:
-      'bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto',
-    header: 'flex justify-between items-center mb-4',
-    title: 'text-xl font-bold',
-    closeButton: 'text-gray-500 hover:text-gray-700',
-    form: 'space-y-4',
-    inputContainer: 'w-full p-2 border rounded',
-    label: 'block mb-1 font-medium',
-    submitButton:
-      'w-full bg-[#020089] text-white py-2 px-4 rounded hover:bg-[#0300a9] transition-colors',
+    overlay: `fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4`,
+    modal: `bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto`,
+    header: `flex justify-between items-center mb-4`,
+    title: `text-xl font-bold`,
+    closeButton: `text-gray-500 hover:text-gray-700`,
+    form: `space-y-4`,
+    inputContainer: `w-full p-2 border rounded`,
+    label: `block mb-1 font-medium`,
+    submitButton: `w-full bg-[#020089] text-white py-2 px-4 rounded hover:bg-[#0300a9] transition-colors`,
   },
   fields: [
-    { name: 'fullName', label: 'Full Name', type: 'text' },
-    { name: 'email', label: 'Email', type: 'email' },
-    { name: 'phone', label: 'Phone', type: 'tel' },
+    { name: `fullName`, label: `Full Name`, type: `text` },
+    { name: `email`, label: `Email`, type: `email` },
+    { name: `phone`, label: `Phone`, type: `tel` },
     {
-      name: 'resume',
-      label: 'Resume',
-      type: 'file',
-      accept: '.pdf,.doc,.docx',
+      name: `resume`,
+      label: `Resume`,
+      type: `file`,
+      accept: `.pdf,.doc,.docx`,
     },
-    { name: 'coverLetter', label: 'Cover Letter', type: 'textarea', rows: 4 },
+    { name: `coverLetter`, label: `Cover Letter`, type: `textarea`, rows: 4 },
   ],
-  submitButtonText: 'Submit Application',
+  submitButtonText: `Submit Application`,
 };
 
 export const ApplyForRoleForm: React.FC<ApplyForRoleProps> = ({
@@ -53,11 +50,11 @@ export const ApplyForRoleForm: React.FC<ApplyForRoleProps> = ({
   onSubmit,
 }) => {
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phone: '',
+    fullName: ``,
+    email: ``,
+    phone: ``,
     resume: null,
-    coverLetter: '',
+    coverLetter: ``,
   });
 
   const handleInputChange = (
@@ -96,7 +93,7 @@ export const ApplyForRoleForm: React.FC<ApplyForRoleProps> = ({
       className: formConfig.styles.inputContainer,
     };
 
-    if (field.type === 'textarea') {
+    if (field.type === `textarea`) {
       return (
         <textarea
           {...commonProps}
@@ -106,7 +103,7 @@ export const ApplyForRoleForm: React.FC<ApplyForRoleProps> = ({
           required={false}
         />
       );
-    } else if (field.type === 'file') {
+    } else if (field.type === `file`) {
       return (
         <input
           {...commonProps}

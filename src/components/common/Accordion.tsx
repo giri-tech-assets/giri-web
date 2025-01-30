@@ -14,14 +14,14 @@ type AccordionProps = {
 
 export const Accordion: React.FC<AccordionProps> = ({
   children,
-  type = 'multiple',
+  type = `multiple`,
 }) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
 
   const toggleItem = (itemValue: string) => {
     setOpenItems((prevOpenItems) => {
       const newOpenItems = new Set(prevOpenItems);
-      if (type === 'single') {
+      if (type === `single`) {
         newOpenItems.clear();
       }
       if (newOpenItems.has(itemValue)) {
@@ -63,7 +63,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 }) => {
   const context = useContext(AccordionContext);
   if (!context) {
-    throw new Error('AccordionTrigger must be used within an Accordion');
+    throw new Error(`AccordionTrigger must be used within an Accordion`);
   }
   const { openItems, toggleItem } = context;
   const isOpen = openItems.has(value);
@@ -76,7 +76,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
       {children}
       <span
         className={`transform transition-transform duration-200 ${
-          isOpen ? 'rotate-180' : ''
+          isOpen ? `rotate-180` : ``
         }`}
       >
         ▼
@@ -96,7 +96,7 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 }) => {
   const context = useContext(AccordionContext);
   if (!context) {
-    throw new Error('AccordionContent must be used within an Accordion');
+    throw new Error(`AccordionContent must be used within an Accordion`);
   }
   const { openItems } = context;
   const isOpen = openItems.has(value);

@@ -1,8 +1,6 @@
 import React from 'react';
 import { SignupButton } from '@/components/common/SignupButton';
 
-
-
 interface HeroProps {
   title: string;
   subtitle: string;
@@ -15,7 +13,7 @@ export const ConnectSellerHero: React.FC<HeroProps> = ({
   ctaText,
 }) => {
   const images = {
-    backgroundHero: '/img/african-connect.png',
+    backgroundHero: `/img/african-connect.png`,
   };
 
   return (

@@ -15,7 +15,7 @@ export const ImagePopup: React.FC<ImagePopupProps> = ({
 
   const childWithClick = cloneElement(children, {
     onClick: togglePopup,
-    style: { ...children.props.style, cursor: 'pointer' },
+    style: { ...children.props.style, cursor: `pointer` },
   });
 
   return (
@@ -25,23 +25,23 @@ export const ImagePopup: React.FC<ImagePopupProps> = ({
         <div
           className={className}
           style={{
-            position: 'fixed',
+            position: `fixed`,
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            backgroundColor: `rgba(0, 0, 0, 0.7)`,
+            display: `flex`,
+            justifyContent: `center`,
+            alignItems: `center`,
             zIndex: 1000,
           }}
           onClick={togglePopup}
         >
           <div
             style={{
-              maxWidth: '90vv',
-              maxHeight: '90vh',
+              maxWidth: `90vv`,
+              maxHeight: `90vh`,
             }}
           >
             {children}

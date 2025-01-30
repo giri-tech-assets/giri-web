@@ -17,13 +17,13 @@ interface TermsOfUseProps {
 }
 
 const termsOfUseContent = {
-  title: 'Terms of Use',
+  title: `Terms of Use`,
   styles: {
-    container: 'max-w-3xl mx-auto px-4 py-20 text-gray-800',
-    title: 'text-3xl font-bold mb-6',
-    paragraph: 'mb-4 leading-relaxed',
-    lastUpdated: 'mt-6 text-sm text-gray-600',
-    link: 'text-blue-600 hover:text-blue-800 underline',
+    container: `max-w-3xl mx-auto px-4 py-20 text-gray-800`,
+    title: `text-3xl font-bold mb-6`,
+    paragraph: `mb-4 leading-relaxed`,
+    lastUpdated: `mt-6 text-sm text-gray-600`,
+    link: `text-blue-600 hover:text-blue-800 underline`,
   },
 };
 
@@ -32,7 +32,6 @@ const TermsOfUse: React.FC<TermsOfUseProps> = () => {
   const policyContents: IPolicyContent[] = policyQuery.map(
     (content: any) => content.frontmatter,
   );
-
 
   return (
     <Layout>

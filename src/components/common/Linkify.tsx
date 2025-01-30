@@ -7,7 +7,7 @@ interface LinkifyProps {
 
 export const Linkify: React.FC<LinkifyProps> = ({
   text,
-  linkClassName = '',
+  linkClassName = ``,
 }) => {
   // Combined regular expression for URLs and email addresses
   const linkRegex =
@@ -20,7 +20,7 @@ export const Linkify: React.FC<LinkifyProps> = ({
     );
     const href = isEmail
       ? `mailto:${content}`
-      : content.startsWith('http')
+      : content.startsWith(`http`)
       ? content
       : `https://${content}`;
 
@@ -28,8 +28,8 @@ export const Linkify: React.FC<LinkifyProps> = ({
       <a
         key={href}
         href={href}
-        target={isEmail ? '_self' : '_blank'}
-        rel={isEmail ? '' : 'noopener noreferrer'}
+        target={isEmail ? `_self` : `_blank`}
+        rel={isEmail ? `` : `noopener noreferrer`}
         className={linkClassName}
       >
         {content}

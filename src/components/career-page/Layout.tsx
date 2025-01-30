@@ -2,21 +2,17 @@ import React from 'react';
 import { Linkify } from '../common/Linkify';
 
 const content = {
-  intro:
-    "Are you passionate about empowering small businesses and showcasing African craftsmanship to the world? Join GirToday, an exciting e-commerce startup connecting African artisans with international customers. We're seeking a talented Backend Engineer to take ownership of our backend services that powers the platform and help us scale our impact.",
-  aboutGiri:
-    'Giri is on a mission to bridge the gap between African small and medium-scale businesses and global markets. Our e-commerce platform enables talented craftspeople to share their unique creations with customers worldwide, fostering economic growth and cultural exchange.',
+  intro: `Are you passionate about empowering small businesses and showcasing African craftsmanship to the world? Join GirToday, an exciting e-commerce startup connecting African artisans with international customers. We're seeking a talented Backend Engineer to take ownership of our backend services that powers the platform and help us scale our impact.`,
+  aboutGiri: `Giri is on a mission to bridge the gap between African small and medium-scale businesses and global markets. Our e-commerce platform enables talented craftspeople to share their unique creations with customers worldwide, fostering economic growth and cultural exchange.`,
   whyJoinGiri: [
-    'Make a real impact: Your work will directly contribute to empowering African artisans and businesses.',
-    "Growth opportunity: As an early-stage startup, there's plenty of room for professional development and leadership role.",
-    'Collaborative culture: Work with a diverse, passionate team dedicated to making a difference.',
-    'Competitive compensation: We offer a salary package commensurate with your experience and skills.',
-    'Flexible work arrangements and a culture that values work-life balance.',
+    `Make a real impact: Your work will directly contribute to empowering African artisans and businesses.`,
+    `Growth opportunity: As an early-stage startup, there's plenty of room for professional development and leadership role.`,
+    `Collaborative culture: Work with a diverse, passionate team dedicated to making a difference.`,
+    `Competitive compensation: We offer a salary package commensurate with your experience and skills.`,
+    `Flexible work arrangements and a culture that values work-life balance.`,
   ],
-  interest:
-    "If you're excited about building technology that empowers communities and brings beautiful African craftsmanship to the world, we want to hear from you! Join us in creating a platform that celebrates creativity, fosters economic opportunities, and connects cultures across continents.",
-  apply:
-    'To apply, upload your resume to www.giritoday.com/careers or send your resume to jobs@giritoday.com',
+  interest: `If you're excited about building technology that empowers communities and brings beautiful African craftsmanship to the world, we want to hear from you! Join us in creating a platform that celebrates creativity, fosters economic opportunities, and connects cultures across continents.`,
+  apply: `To apply, upload your resume to www.giritoday.com/careers or send your resume to jobs@giritoday.com`,
 };
 
 export const JobCardLayout: React.FC<JobCardLayoutProps> = ({ children }) => {
@@ -69,17 +65,17 @@ export const JobCard: React.PropsWithChildren<any> = ({ children }: any) => {
 
 function renderFootNotes() {
   const whyReasons = [
-    'Make a real impact: Your work will directly contribute to empowering African artisans and businesses.',
-    "Growth opportunity: As an early-stage startup, there's plenty of room for professional development and leadership roles.",
-    'Collaborative culture: Work with a diverse, passionate team dedicated to making a difference.',
-    'Competitive compensation: We offer a salary package commensurate with your experience and skills.',
-    'Flexible work arrangements and a culture that values work-life balance',
+    `Make a real impact: Your work will directly contribute to empowering African artisans and businesses.`,
+    `Growth opportunity: As an early-stage startup, there's plenty of room for professional development and leadership roles.`,
+    `Collaborative culture: Work with a diverse, passionate team dedicated to making a difference.`,
+    `Competitive compensation: We offer a salary package commensurate with your experience and skills.`,
+    `Flexible work arrangements and a culture that values work-life balance`,
   ];
 
   return (
     <section className="mb-6">
       <h2 className="text-xl font-semibold mb-2">Why Join Giri:</h2>
-      <ul className={'list-disc pl-5'}>
+      <ul className={`list-disc pl-5`}>
         {whyReasons.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}

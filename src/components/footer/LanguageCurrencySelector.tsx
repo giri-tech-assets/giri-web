@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 
 const selectorConfig = {
   styles: {
-    container:
-      'flex items-start self-stretch my-auto whitespace-nowrap text-zinc-400',
-    selectorWrapper: 'flex flex-col',
-    selectorButton:
-      'flex flex-col justify-center px-2.5 py-3.5 w-full bg-white rounded-xl',
-    selectorContent: 'flex gap-1.5 items-start',
-    selectorText: 'text-sm font-semibold tracking-normal',
+    container: `flex items-start self-stretch my-auto whitespace-nowrap text-zinc-400`,
+    selectorWrapper: `flex flex-col`,
+    selectorButton: `flex flex-col justify-center px-2.5 py-3.5 w-full bg-white rounded-xl`,
+    selectorContent: `flex gap-1.5 items-start`,
+    selectorText: `text-sm font-semibold tracking-normal`,
   },
-  languages: ['English'],
-  currencies: ['USD',],
+  languages: [`English`],
+  currencies: [`USD`],
 };
 
 export const LanguageCurrencySelector: React.FC = () => {

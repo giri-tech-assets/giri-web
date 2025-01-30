@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 interface ToastProps {
   message: string;
   onClose: () => void;
-  position?: "top" | "bottom";
-  type?: "fixed" | "default";
-  align?: "left" | "center" | "right";
+  position?: 'top' | 'bottom';
+  type?: 'fixed' | 'default';
+  align?: 'left' | 'center' | 'right';
 }
 
 export const Toast: React.FC<ToastProps> = ({
   message,
   onClose,
-  position = "bottom",
-  type = "default",
-  align = "right"
+  position = `bottom`,
+  type = `default`,
+  align = `right`,
 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,16 +23,24 @@ export const Toast: React.FC<ToastProps> = ({
     return () => clearTimeout(timer);
   }, [onClose]);
 
-  const baseClasses = "bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in";
+  const baseClasses = `bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in`;
 
-  let positionClasses = "";
-  if (type === "fixed") {
+  let positionClasses = ``;
+  if (type === `fixed`) {
     positionClasses = `fixed ${position}-5 ${
-      align === "left" ? "left-5" : align === "right" ? "right-5" : "left-1/2 transform -translate-x-1/2"
+      align === `left`
+        ? `left-5`
+        : align === `right`
+        ? `right-5`
+        : `left-1/2 transform -translate-x-1/2`
     }`;
   } else {
     positionClasses = `${
-      align === "left" ? "self-start" : align === "right" ? "self-end" : "self-center"
+      align === `left`
+        ? `self-start`
+        : align === `right`
+        ? `self-end`
+        : `self-center`
     }`;
   }
 
