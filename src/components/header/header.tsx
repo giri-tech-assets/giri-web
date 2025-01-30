@@ -11,7 +11,7 @@ const images = {
 
 const headerConfig = {
   styles: {
-    header: `w-full mx-auto px-4 py-4 relative top-0 bg-[#020089] z-50`,
+    header: `w-full mx-auto px-4 py-4 relative top-0 bg-[#020089]`,
     backgroundImage: {
       backgroundImage: `url('${images.backgroundPattern}')`,
       backgroundRepeat: `no-repeat`,
@@ -23,7 +23,7 @@ const headerConfig = {
     logo: `object-contain w-[50px] h-[50px] md:w-[70px] md:h-[70px]`,
     desktopNav: `hidden md:flex items-center space-x-8`,
     mobileMenuButton: `md:hidden z-50`,
-    mobileMenu: `fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg z-40 transition-transform transform ease-in-out duration-300`,
+    mobileMenu: `fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg z-50 transition-transform transform ease-in-out duration-300`,
     mobileMenuContent: `flex flex-col items-start p-8 space-y-6 mt-16`,
     navItem: `hover:text-amber-400 transition-colors relative z-10`,
     activeNavItem: `text-amber-400 font-bold`,
