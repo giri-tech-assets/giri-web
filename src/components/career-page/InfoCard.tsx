@@ -7,7 +7,11 @@ interface InfoCardProps {
   description: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ imageSrc, title, description }) => {
+const InfoCard: React.FC<InfoCardProps> = ({
+  imageSrc,
+  title,
+  description,
+}) => {
   return (
     <motion.article
       className="flex flex-col flex-1 shrink px-6 pt-6 pb-10 rounded-3xl border-b border-amber-400 basis-0 bg-slate-50 min-w-[240px] shadow-[33px_39px_52px_rgba(179,176,201,0.14)] max-md:px-5 hover:shadow-lg transition-shadow duration-300 ease-in-out cursor-pointer"

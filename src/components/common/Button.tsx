@@ -12,19 +12,19 @@ export interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({
   text,
-  variant = 'accent',
-  to = '/#newsletter',
-  className = '',
+  variant = `accent`,
+  to = `/#newsletter`,
+  className = ``,
   onClick,
   disabled = false,
 }) => {
   const color: Record<ButtonProps['variant'], string> = {
-    primary: 'bg-blue-950',
-    secondary: 'bg-gray-900',
-    accent: 'bg-yellow-400',
+    primary: `bg-blue-950`,
+    secondary: `bg-gray-900`,
+    accent: `bg-yellow-400`,
   };
 
-  const textColor = variant === 'primary' ? 'text-white' : 'text-gray-900';
+  const textColor = variant === `primary` ? `text-white` : `text-gray-900`;
 
   const baseButtonClasses = `
     inline-flex overflow-hidden gap-2 justify-center items-center
@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const buttonClasses = `
     ${baseButtonClasses}
-    ${disabled ? 'opacity-50 cursor-not-allowed' : color[variant]}
+    ${disabled ? `opacity-50 cursor-not-allowed` : color[variant]}
   `.trim();
 
   const content = (
@@ -61,5 +61,3 @@ export const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
-
-

@@ -4,15 +4,15 @@ export function formatFAQData(originalData: any) {
     sellerFAQ: { question: string; answer: string }[];
   } = {
     buyerFAQ: [],
-    sellerFAQ: []
+    sellerFAQ: [],
   };
 
   originalData?.forEach((group: any) => {
-    const faqType = group.fieldValue + 'FAQ';
+    const faqType = group.fieldValue + `FAQ`;
 
     const formattedFAQs = group.nodes.map((node: any) => ({
       question: node.frontmatter.question,
-      answer: node.frontmatter.answer
+      answer: node.frontmatter.answer,
     }));
 
     result[faqType as keyof typeof result] = formattedFAQs;

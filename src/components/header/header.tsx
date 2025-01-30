@@ -5,41 +5,37 @@ import { useLocation } from '@reach/router';
 
 // Extracted images object
 const images = {
-  backgroundPattern:
-    'https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg',
-  logo: 'https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+  backgroundPattern: `https://raw.githubusercontent.com/giri-tech-assets/web-images/f6655552e6d92f0a4ccf05d5c85be16d2eaffb53/african-pattern.svg`,
+  logo: `https://cdn.builder.io/api/v1/image/assets/TEMP/0ef6a459e7c7a66ba196beea2188914c91890feca80f09279d1f0467f591bc29?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e`,
 };
 
 const headerConfig = {
   styles: {
-    header: 'w-full mx-auto px-4 py-4 relative bg-[#020089]',
+    header: `w-full mx-auto px-4 py-4 relative top-0 bg-[#020089] z-50`,
     backgroundImage: {
       backgroundImage: `url('${images.backgroundPattern}')`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
+      backgroundRepeat: `no-repeat`,
+      backgroundPosition: `center`,
+      backgroundSize: `cover`,
     },
-    closeIcon: 'w-6 h-6 text-gray-800 absolute top-4 right-4',
-    headerContent:
-      'flex justify-between items-center max-w-7xl mx-auto relative z-10',
-    logo: 'object-contain w-[50px] h-[50px] md:w-[70px] md:h-[70px]',
-    desktopNav: 'hidden md:flex items-center space-x-8',
-    mobileMenuButton: 'md:hidden z-50',
-    mobileMenu:
-      'fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg z-40 transition-transform transform ease-in-out duration-300',
-    mobileMenuContent: 'flex flex-col items-start p-8 space-y-6 mt-16',
-    navItem: 'hover:text-amber-400 transition-colors relative z-10',
-    activeNavItem: 'text-amber-400 font-bold',
-    contactButton:
-      'inline-block px-4 py-2 text-sm font-semibold text-center bg-amber-400 rounded-lg shadow-md text-violet-950 hover:bg-amber-500 transition-colors',
+    closeIcon: `w-6 h-6 text-gray-800 absolute top-4 right-4`,
+    headerContent: `flex justify-between items-center max-w-7xl mx-auto relative z-10`,
+    logo: `object-contain w-[50px] h-[50px] md:w-[70px] md:h-[70px]`,
+    desktopNav: `hidden md:flex items-center space-x-8`,
+    mobileMenuButton: `md:hidden z-50`,
+    mobileMenu: `fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg z-40 transition-transform transform ease-in-out duration-300`,
+    mobileMenuContent: `flex flex-col items-start p-8 space-y-6 mt-16`,
+    navItem: `hover:text-amber-400 transition-colors relative z-10`,
+    activeNavItem: `text-amber-400 font-bold`,
+    contactButton: `inline-block px-4 py-2 text-sm font-semibold text-center bg-amber-400 rounded-lg shadow-md text-violet-950 hover:bg-amber-500 transition-colors`,
   },
   logo: {
     src: images.logo,
-    alt: 'Company Logo',
+    alt: `Company Logo`,
   },
   contactButton: {
-    text: 'Contact Us',
-    link: '/#newsletter',
+    text: `Contact Us`,
+    link: `/#newsletter`,
   },
 };
 
@@ -105,14 +101,14 @@ const Logo: React.FC = () => {
 const Navigation: React.FC = () => {
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
-  const faqLink = visitorType === VisitorType.Buyer ? '/shop#faq' : '/sell#faq';
-  const homeLink = visitorType === VisitorType.Buyer ? '/shop' : '/sell';
+  const faqLink = visitorType === VisitorType.Buyer ? `/shop#faq` : `/sell#faq`;
+  const homeLink = visitorType === VisitorType.Buyer ? `/shop` : `/sell`;
 
   const navigationItems = [
-    { title: 'Home', link: homeLink },
-    { title: 'About Us', link: '/about-us' },
-    { title: 'Careers', link: '/careers' },
-    { title: 'FAQ', link: faqLink },
+    { title: `Home`, link: homeLink },
+    { title: `About Us`, link: `/about-us` },
+    { title: `Careers`, link: `/careers` },
+    { title: `FAQ`, link: faqLink },
   ];
   const { styles } = headerConfig;
 
@@ -126,7 +122,7 @@ const Navigation: React.FC = () => {
             className={`${styles.navItem} ${
               location.pathname.slice(0, -1) === link
                 ? styles.activeNavItem
-                : ''
+                : ``
             }`}
           >
             {title}
@@ -143,21 +139,21 @@ const MobileNavigation: React.FC<{
   const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
   const location = useLocation();
-  const faqLink = visitorType === VisitorType.Buyer ? '/shop#faq' : '/sell#faq';
-  const homeLink = visitorType === VisitorType.Buyer ? '/shop' : '/sell';
+  const faqLink = visitorType === VisitorType.Buyer ? `/shop#faq` : `/sell#faq`;
+  const homeLink = visitorType === VisitorType.Buyer ? `/shop` : `/sell`;
 
   const navigationItems = [
-    { title: 'Home', link: homeLink },
-    { title: 'About Us', link: '/about-us' },
-    { title: 'Careers', link: '/careers' },
-    { title: 'FAQ', link: faqLink },
+    { title: `Home`, link: homeLink },
+    { title: `About Us`, link: `/about-us` },
+    { title: `Careers`, link: `/careers` },
+    { title: `FAQ`, link: faqLink },
   ];
 
   return (
     <nav className="flex flex-col space-y-6 text-base text-gray-800">
       {navigationItems.map(({ title, link }) => {
         console.log(
-          'location.pathname',
+          `location.pathname`,
           location.pathname,
           link,
           location.pathname.slice(0, -1),
@@ -169,7 +165,7 @@ const MobileNavigation: React.FC<{
             className={`${styles.navItem} ${
               location.pathname.slice(0, -1) === link
                 ? styles.activeNavItem
-                : ''
+                : ``
             }`}
             onClick={() => setIsMenuOpen(false)}
           >
@@ -185,12 +181,13 @@ const ContactButton: React.FC = () => {
   const { styles } = headerConfig;
   const { visitorType } = useGetVisitorType();
   const text =
-    visitorType === VisitorType.Buyer ? 'Sell on Giri' : 'Shop on Giri';
-  const link = visitorType === VisitorType.Buyer ? '/sell' : '/shop';
+    visitorType === VisitorType.Buyer ? `Sell on Giri` : `Shop on Giri`;
+  const link = visitorType === VisitorType.Buyer ? `/sell` : `/shop`;
 
   return (
     <CustomLink to={link} className={styles.contactButton}>
-      {text}{' '}
+      {text}
+      {` `}
     </CustomLink>
   );
 };

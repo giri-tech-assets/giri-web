@@ -4,8 +4,7 @@ import { SignupButton } from '@/components/common/SignupButton';
 
 // Extracted images object
 const images = {
-  forSellersIcon:
-    'https://cdn.builder.io/api/v1/image/assets/TEMP/7df039c68128b09ff22e0a53cc481ef468043ee18deddeb1323aa75202840228?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e',
+  forSellersIcon: `https://cdn.builder.io/api/v1/image/assets/TEMP/7df039c68128b09ff22e0a53cc481ef468043ee18deddeb1323aa75202840228?placeholderIfAbsent=true&apiKey=f547751f91f54b6a805677abc411ee2e`,
 };
 
 interface Feature {
@@ -16,10 +15,9 @@ interface Feature {
 }
 
 const howItWorksContent = {
-  headerTag: 'Features',
-  title: 'How It Works',
-  description:
-    'Start selling, shipping, and earning effortlessly with on Giri, the global marketplace for African goods. Tell your story, showcase your products, and reach customers worldwide.',
+  headerTag: `Features`,
+  title: `How It Works`,
+  description: `Start selling, shipping, and earning effortlessly with on Giri, the global marketplace for African goods. Tell your story, showcase your products, and reach customers worldwide.`,
   features: [
     {
       icon: (
@@ -41,13 +39,12 @@ const howItWorksContent = {
           <path d="M8 3v4"></path>
         </svg>
       ),
-      title: 'Integrate',
-      description:
-        'Create your customizable storefront for quick and seamless product listings, enhancing the shopping experience for your artisanal and bespoke items."',
+      title: `Integrate`,
+      description: `Create your customizable storefront for quick and seamless product listings, enhancing the shopping experience for your artisanal and bespoke items."`,
       steps: [
-        'Create seller account',
-        'Upload product catalog',
-        'Customize store front',
+        `Create seller account`,
+        `Upload product catalog`,
+        `Customize store front`,
       ],
     },
     {
@@ -69,13 +66,12 @@ const howItWorksContent = {
           <path d="M12 11l3 3"></path>
         </svg>
       ),
-      title: 'Sell',
-      description:
-        'Sell More. Enjoy multiple sales and payment options and dedicated customer support, ensuring a seamless experience for you and your buyers.',
+      title: `Sell`,
+      description: `Sell More. Enjoy multiple sales and payment options and dedicated customer support, ensuring a seamless experience for you and your buyers.`,
       steps: [
-        'Global product promotion',
-        'Multiple payment options',
-        'Customer support',
+        `Global product promotion`,
+        `Multiple payment options`,
+        `Customer support`,
       ],
     },
     {
@@ -97,33 +93,29 @@ const howItWorksContent = {
           <line x1="3" y1="3" x2="21" y2="21"></line>
         </svg>
       ),
-      title: 'Deliver',
-      description:
-        'Ship Faster. We partner with multiple shipping providers to ensure faster delivery, along with various payment options and dedicated customer support for a seamless experience.',
+      title: `Deliver`,
+      description: `Ship Faster. We partner with multiple shipping providers to ensure faster delivery, along with various payment options and dedicated customer support for a seamless experience.`,
       steps: [
-        'Quality control',
-        'Eco-friendly packaging',
-        'Worldwide shipping',
+        `Quality control`,
+        `Eco-friendly packaging`,
+        `Worldwide shipping`,
       ],
     },
   ],
-  buttonText: 'Start Selling',
+  buttonText: `Start Selling`,
   styles: {
-    section: 'py-16 bg-gradient-to-b from-white to-gray-100',
-    container: 'container mx-auto px-4',
-    header: 'text-center mb-12',
-    headerTagContainer:
-      'flex gap-5 items-center text-base font-medium leading-loose whitespace-nowrap text-neutral-900',
-    headerTagIcon: 'object-contain shrink-0 self-stretch my-auto w-[65px]',
-    headerTag: 'object-contain shrink-0 self-stretch my-auto w-[65px]',
-    title: 'text-4xl font-bold mt-4 mb-6',
-    description:
-      'self-center mt-3.5 text-base leading-6 text-center text-gray-500 max-md:max-w-full',
-    featuresContainer: 'grid grid-cols-1 md:grid-cols-3 gap-8 mb-12',
-    buttonContainer: 'text-center',
-    button:
-      'bg-yellow-400 hover:bg-blue-950 hover:text-white  text-blue-950 font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300',
-    buttonIcon: 'ml-2',
+    section: `py-16 bg-gradient-to-b from-white to-gray-100`,
+    container: `container mx-auto px-4`,
+    header: `text-center mb-12`,
+    headerTagContainer: `flex gap-5 items-center text-base font-medium leading-loose whitespace-nowrap text-neutral-900`,
+    headerTagIcon: `object-contain shrink-0 self-stretch my-auto w-[65px]`,
+    headerTag: `object-contain shrink-0 self-stretch my-auto w-[65px]`,
+    title: `text-4xl font-bold mt-4 mb-6`,
+    description: `self-center mt-3.5 text-base leading-6 text-center text-gray-500 max-md:max-w-full`,
+    featuresContainer: `grid grid-cols-1 md:grid-cols-3 gap-8 mb-12`,
+    buttonContainer: `text-center`,
+    button: `bg-yellow-400 hover:bg-blue-950 hover:text-white  text-blue-950 font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300`,
+    buttonIcon: `ml-2`,
   },
 };
 

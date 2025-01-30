@@ -16,8 +16,8 @@ export const Address: React.FC<AddressProps> = ({
   city,
   state,
   zipCode,
-  country = '',
-  className = '',
+  country = ``,
+  className = ``,
 }) => {
   return (
     <address className={`not-italic ${className} text-gray-500`}>

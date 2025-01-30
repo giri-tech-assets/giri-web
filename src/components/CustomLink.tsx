@@ -8,14 +8,13 @@ interface CustomLinkProps extends Omit<GatsbyLinkProps<{}>, 'ref'> {
 
 const CustomLink: React.FC<CustomLinkProps> = ({ to, ...props }) => {
   const isInternal = /^\/(?!\/)/.test(to);
-  const isAnchor = to.includes('#');
-
+  const isAnchor = to.includes(`#`);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isAnchor) {
       e.preventDefault();
       const element = document.getElementById(to.slice(1));
-      element?.scrollIntoView({ behavior: 'smooth' });
+      element?.scrollIntoView({ behavior: `smooth` });
     }
   };
 

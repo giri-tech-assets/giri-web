@@ -4,18 +4,18 @@ import { VisitorType } from '@/hooks/useGetVisitorType';
 import { usePageContentQueries } from '@/hooks/pages-queries/usePageContentQueries';
 
 const faqContent = {
-  title: 'Frequently Asked Questions',
+  title: `Frequently Asked Questions`,
   styles: {
-    container: 'max-w-2xl mx-auto mt-8',
-    title: 'text-3xl font-bold mb-6 text-center',
-    faqItem: 'border-b border-gray-200 py-4',
-    question: 'flex justify-between items-center w-full text-left',
-    questionText: 'text-lg font-medium',
-    answer: 'mt-2 text-gray-600',
-    toggle: 'flex justify-center space-x-4 mb-6',
-    toggleButton: 'px-4 py-2 rounded-md',
-    activeToggle: 'bg-blue-950 text-white',
-    inactiveToggle: 'bg-gray-200 text-gray-700',
+    container: `max-w-2xl mx-auto mt-8`,
+    title: `text-3xl font-bold mb-6 text-center`,
+    faqItem: `border-b border-gray-200 py-4`,
+    question: `flex justify-between items-center w-full text-left`,
+    questionText: `text-lg font-medium`,
+    answer: `mt-2 text-gray-600`,
+    toggle: `flex justify-center space-x-4 mb-6`,
+    toggleButton: `px-4 py-2 rounded-md`,
+    activeToggle: `bg-blue-950 text-white`,
+    inactiveToggle: `bg-gray-200 text-gray-700`,
   },
   config: {
     chevronSize: 20,
@@ -44,7 +44,7 @@ const FAQItem = ({
           size={faqContent.config.chevronSize}
           className={`transform transition-transform duration-${
             faqContent.config.transitionDuration
-          } ${isOpen ? 'rotate-180' : ''}`}
+          } ${isOpen ? `rotate-180` : ``}`}
         />
       </button>
       <div
@@ -52,8 +52,8 @@ const FAQItem = ({
         style={{
           maxHeight: isOpen
             ? `${(contentRef.current as any)?.scrollHeight || 0}px`
-            : '0px',
-          overflow: 'hidden',
+            : `0px`,
+          overflow: `hidden`,
           transition: `max-height ${faqContent.config.transitionDuration}ms ease-out, opacity ${faqContent.config.transitionDuration}ms ease-out`,
           opacity: isOpen ? 1 : 0,
         }}
@@ -75,7 +75,7 @@ const FAQAccordion = () => {
     faqQuery: { buyerFAQ, sellerFAQ },
   } = usePageContentQueries();
 
-  const faqData = userType === 'buyer' ? buyerFAQ : sellerFAQ;
+  const faqData = userType === `buyer` ? buyerFAQ : sellerFAQ;
 
   return (
     <div className={faqContent.styles.container} id="faq">
@@ -83,7 +83,7 @@ const FAQAccordion = () => {
       <div className={faqContent.styles.toggle}>
         <button
           className={`${faqContent.styles.toggleButton} ${
-            userType === 'buyer'
+            userType === `buyer`
               ? faqContent.styles.activeToggle
               : faqContent.styles.inactiveToggle
           }`}
@@ -93,7 +93,7 @@ const FAQAccordion = () => {
         </button>
         <button
           className={`${faqContent.styles.toggleButton} ${
-            userType === 'seller'
+            userType === `seller`
               ? faqContent.styles.activeToggle
               : faqContent.styles.inactiveToggle
           }`}

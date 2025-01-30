@@ -64,7 +64,7 @@ const CountDown = ({
 
   return (
     <div
-      className="w-full bg-[#020089] sticky -top-0.5 z-40 -my-0.5"
+      className="w-full bg-[#020089] sticky top-0 lg:-0.5 z-40 -my-0.5"
       style={{
         backgroundImage: `url('${backgroundPattern}')`,
       }}

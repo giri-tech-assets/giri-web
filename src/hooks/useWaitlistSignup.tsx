@@ -30,10 +30,10 @@ const SIGNUP_BUYER = gql`
 `;
 
 export enum SignupStatus {
-  Success = 'success',
-  Error = 'error',
-  AlreadyExists = 'already_exists',
-  Idle = 'idle',
+  Success = `success`,
+  Error = `error`,
+  AlreadyExists = `already_exists`,
+  Idle = `idle`,
 }
 
 type SignupType = 'waitlist' | 'newsletter' | 'job';
@@ -43,9 +43,9 @@ interface SignupRequest {
 }
 
 export const useWaitlistSignup = ({
-  signupType = 'newsletter',
+  signupType = `newsletter`,
 }: SignupRequest) => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(``);
   const [signupStatus, setSignupStatus] = useState<SignupStatus>(
     SignupStatus.Idle,
   );
@@ -74,11 +74,11 @@ export const useWaitlistSignup = ({
         setSignupStatus(SignupStatus.Success);
         // We're not resetting the email here anymore
       } catch (error: any) {
-        if (error.message.includes('Uniqueness violation')) {
+        if (error.message.includes(`Uniqueness violation`)) {
           setSignupStatus(SignupStatus.AlreadyExists);
           return;
         }
-        console.error('Error signing up:', error.message);
+        console.error(`Error signing up:`, error.message);
         setSignupStatus(SignupStatus.Error);
       }
     },
@@ -109,9 +109,9 @@ export async function sendSignupRequest({
     const response = await fetch(
       `${process.env.GATSBY_GCLOUD_MAILER_ENDPOINT}`,
       {
-        method: 'POST',
+        method: `POST`,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': `application/json`,
         },
         body: JSON.stringify({
           receiver_email: email,
@@ -136,27 +136,27 @@ export async function sendSignupRequest({
 
     return {
       success: true,
-      message: data.message || 'Signup successful',
+      message: data.message || `Signup successful`,
     };
   } catch (error) {
     if (error instanceof Error) {
-      if (error.message.includes('Uniqueness violation')) {
+      if (error.message.includes(`Uniqueness violation`)) {
         return {
           success: false,
-          message: 'User already exists',
-          error: 'ALREADY_EXISTS',
+          message: `User already exists`,
+          error: `ALREADY_EXISTS`,
         };
       }
       return {
         success: false,
         message: `Error during signup: ${error.message}`,
-        error: 'SIGNUP_FAILED',
+        error: `SIGNUP_FAILED`,
       };
     }
     return {
       success: false,
-      message: 'An unknown error occurred',
-      error: 'UNKNOWN_ERROR',
+      message: `An unknown error occurred`,
+      error: `UNKNOWN_ERROR`,
     };
   }
 }

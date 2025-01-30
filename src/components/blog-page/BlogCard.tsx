@@ -23,10 +23,9 @@ export interface BlogPostData {
   };
 }
 
-
-
-
-export const BlogPostCard: React.FC<{ post: BlogPostData['node'] }> = ({ post }) => {
+export const BlogPostCard: React.FC<{ post: BlogPostData['node'] }> = ({
+  post,
+}) => {
   const image = getImage(post.frontmatter.featuredImage);
 
   return (
@@ -45,7 +44,9 @@ export const BlogPostCard: React.FC<{ post: BlogPostData['node'] }> = ({ post })
           />
         )}
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-2 text-gray-800">{post.frontmatter.title}</h2>
+          <h2 className="text-2xl font-bold mb-2 text-gray-800">
+            {post.frontmatter.title}
+          </h2>
           <p className="text-gray-600 mb-4">{post.frontmatter.excerpt}</p>
           <div className="flex justify-between items-center text-sm text-gray-500">
             <span>{post.frontmatter.author}</span>
