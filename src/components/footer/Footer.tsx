@@ -2,6 +2,7 @@ import React from 'react';
 import { PrivacyLinks } from './PrivacyLinks';
 import { LanguageCurrencySelector } from './LanguageCurrencySelector';
 import { Address } from './Address';
+import { SocialMediaLinks } from './SocialMediaLinks';
 
 export const Footer: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ export const Footer: React.FC = () => {
           country="United States"
         />
       </>
+      <SocialMediaLinks />
       <LanguageCurrencySelector />
     </footer>
   );
